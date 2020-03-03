@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+<head>
+  <!--ADDING MODALS-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="js/typed.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+  <script src="js/profile.js"></script>
+
+  <!-- BOOTSTRAP AND CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/feed.css" type="text/css">
+  <link rel="stylesheet" href="css/profile.css" type="text/css">
+  <link rel="stylesheet" href="css/modal.css" type="text/css">
+
+  <!-- TITLE -->
+  <title>
+    f o l i o .
+  </title>
+</head>
+
+<body>
+  <nav class="folioBar navbar navbar-expand-lg navbar-light bg-light">
+    <!--FOLIO TYPED-->
+    <div class="col">
+      <div class="logo navbar-brand d-flex w-50 mr-auto" id="navfolio">
+        <button class="btn btn-link"id="home-red"><h1><span id="typed"></span></h1></button>
+        <script>
+        $('document').ready(function(){
+          var typed = new Typed('#typed', {
+            strings:["f o l i o ."],
+            backSpeed: 40,
+            typeSpeed: 55,
+            onComplete: function () {
+              $(".typed-cursor").hide();
+            }
+          });
+        });
+        </script>
+      </div>
+    </div>
+    <!--SEARCH BAR-->
+    <div class="col">
+      <div id="navsearch" class="navbar-nav w-100 justify-content-center">
+        <form class="col-lg">
+          <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+    <!--ADD POST & AVATAR-->
+    <div class="col">
+      <div id="navuser" class="navbar-nav w-100 justify-content-center">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li>
+            <a href="#" data-toggle="modal" data-target="#postModal">
+              <img class="nav-post" src="img/add post.png">
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="nav-avatar" src="img/avatar.jpg">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="navbarDropdown">
+              <button type="button" class="dropdown-item profile-red btn-light" >Profile</button>
+
+              <button type="button" class="dropdown-item btn-light"
+              data-toggle="modal" data-target="#accset">Account Settings</button>
+
+              <button type="button" class="dropdown-item btn-light" id="getdat" data-toggle="modal"
+              data-target="#profset">Profile Settings</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--PROFILE-->
+
+  <div class="profile-container">
+    <div class="profile-details-container">
+      <div class="prof-header-center">
+        <div class = "profile-image-container">
+          <div class="prof-img-cont">
+            <img  class = "fill" src="img/avatar.jpg">
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary" id="follow">
+              Follow
+            </button>
+          </div>
+        </div>
+
+        <div class="profile-data">
+          <div class="profile-name"  id="pname">Eugenio Pastoral</div>
+          <div class="profile-handle" id="handle">@eugeniopastoral</div>
+          <br>
+          <div class="user-location" id="loc">Manila, Philippines</div>
+          <div class="user-desc" id="bio">21-year-old photographer based in the Philippines.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-posts-container">
+      <div class="prof-posts-center">
+        <div class="profile-posts">
+          <div class="gallery">
+            <div class="gallery-row">
+              <div class="gallery-column">
+
+                <a  href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic">
+
+                  <div class="gallery-item-container thumb">
+                    <img src="img\post1.jpg">
+                  </div>
+                </a>
+
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic" >
+                  <div class="gallery-item-container thumb">
+                    <img src="img\albert.jpg">
+                  </div>
+                </a>
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic" >
+                  <div class="gallery-item-container thumb">
+                    <img src="img\raf.jpg">
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="gallery-column">
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic" id="pic4">
+                  <div class="gallery-item-container thumb">
+                    <img src="img\landing0.jpg">
+                  </div>
+                </a>
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic" id="pic5">
+                  <div class="gallery-item-container thumb">
+                    <img src="img\landing1.jpg">
+                  </div>
+                </a>
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic">
+                  <div class="gallery-item-container thumb">
+                    <img src="img\landing0.jpg">
+                  </div>
+                </a>
+              </div>
+
+              <div class="gallery-column">
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic">
+                  <div class="gallery-item-container thumb">
+                    <img src="img\landing3.jpg">
+                  </div>
+                </a>
+                <a href="#" class="thumbnail" data-toggle="modal"
+                data-target="#view-pic">
+                  <div class="gallery-item-container thumb">
+                    <img src="img\landing4.jpg">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--ACCOUNT SETTINGS MODAL-->
+  <div class="modal fade" id="accset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-l modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title acc-set-title">Account Settings</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-body" >
+          <div class="col">
+            <button class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
+            href="#emailform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Email</button>
+
+            <div class="collapse multi-collapse" id="emailform">
+              <form>
+                <div class="form-group">
+                  <label for="mailing">Email address</label>
+                  <input type="email" class="form-control" id="newmail" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
+            href="#pwform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Password</button>
+
+
+            <div class="collapse multi-collapse" id="pwform">
+              <form>
+                <div class="form-group">
+                  <label for="pass">Password</label>
+                  <input type="password" class="form-control" id="newpass" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                  <label for="pass">Confirm Password</label>
+                  <input type="password" class="form-control" id="conf_newpass" placeholder="Confirm Password">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col">
+            <footer>
+              <button class="btn btn-danger confidential btn-lg btn-block">
+                Delete Account
+              </button>
+            </footer>
+          </div>
+
+        </div>
+
+        <!-- ACC SETTINGS FOOTER-->
+        <div class="modal-footer edit-done">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" id="throw-dat" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--PROFILE SETTINGS MODAL-->
+  <div class="modal fade" id="profset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title prof-set-title">Profile Settings</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-body">
+
+          <form class="form form-vertical">
+            <div class="row">
+              <div class="col-sm-4 text-center dp-cont">
+                <div class="custom-prof-pic-cont">
+                  <img id="display-pic" src="img/blank.png" /><br>
+                  <input type='file' id="imgInp"/>
+                </div>
+              </div>
+
+              <div class="col-6 ">
+                <div class="form-group new-data">
+                  <label for="userName">Username</label>
+                  <input type="text" class="form-control text-center" id="newhandle" placeholder="New username">
+                </div>
+
+                <div class="form-group new-data">
+                  <label for="newbio">Bio</label>
+                  <textarea type="text" class="form-control text-center" id="newbio" placeholder="Bio"> </textarea>
+                </div>
+
+                <div class="form-group new-data">
+                  <label for="newloc">Location</label>
+                  <input type="text" class="form-control text-center" id="newloc" placeholder="Location">
+                </div>
+
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+
+        <div class="modal-footer edit-done">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" id="save-dat" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--ADD POST MODAL-->
+  <div class="modal fade" id="postModal" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+      <div class="modal-content row">
+        <!-- Modal body -->
+        <div class="modal-post-header">
+          <div class="pic-row">
+            <img class="fill-row" src="img/post1.jpg">
+          </div>
+        </div>
+
+        <div class="modal-post-container">
+          <div class="modal-header">
+            Add Post
+          </div>
+
+          <div class="modal-post-fields">
+            <input class="addposttitle form-control mr-sm-2" type="text" placeholder="title" aria-label="Search">
+            <input class="addpostdesc form-control mr-sm-2" type="text" placeholder="description" aria-label="Search">
+          </div>
+          <div class="addpost-button">
+            <button type="button" class="addpostbtn btn btn-secondary">Upload</button>
+            <button type="button" class="addpostbtn btn btn-secondary">Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW POST MODAL-->
+  <div class="modal fade" id="view-pic" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <!-- HEAD-->
+        <div class="modal-header" id="view-title">
+          <h5 class="modal-title" >View Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Modal body -->
+          <div class="modal-body">
+
+            <div class="viewer">
+
+              <img src="#" id="view-pic-cont">
+
+
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
