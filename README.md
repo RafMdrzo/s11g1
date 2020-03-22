@@ -2,6 +2,11 @@
 
 Folio is a social media platform designed for creatives. The website focuses on the content uploaded by the users. Basic social media features like as posting, commenting, and following users can be done.
 
+## Authors
+- Eugenio Pastoral
+- Rafael Maderazo
+- Kyra Choa
+
 ## How to setup this GitHub repository in your machine
 
 1. Install [Git](https://git-scm.com/downloads) if you haven't yet.
@@ -18,8 +23,3 @@ Folio is a social media platform designed for creatives. The website focuses on 
 1. After committing changes locally, don't forget to push those changes to the repository.
 2. Don't push to **master** immediately. Instead, push to alternative branches. Committing changes to **master** should only be done once the code is finalized.
 3. Before committing, proofread your commit message for spelling and grammatical errors.
-
-## Authors
-- Eugenio Pastoral
-- Rafael Maderazo
-- Kyra Choa
