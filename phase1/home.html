@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+<head>
+  <!--ADDING MODALS-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="js/typed.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="js/folio.js"></script>
+
+  <!-- BOOTSTRAP AND CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/feed.css" type="text/css">
+  <link rel="stylesheet" href="css/modal.css" type="text/css">
+  <link rel="stylesheet" href="css/profile.css" type="text/css">
+
+  <!-- TITLE -->
+  <title>
+    f o l i o .
+  </title>
+</head>
+<body>
+  <nav class="folioBar navbar navbar-expand-lg navbar-light bg-light">
+    <!--FOLIO TYPED-->
+    <div class="col">
+      <div class="logo navbar-brand d-flex w-50 mr-auto" id="navfolio">
+        <button class="btn btn-link"id="home-red"><h1><span id="typed"></span></h1></button>
+        <script>
+        $('document').ready(function(){
+          var typed = new Typed('#typed', {
+            strings:["f o l i o ."],
+            backSpeed: 40,
+            typeSpeed: 55,
+            onComplete: function () {
+              $(".typed-cursor").hide();
+            }
+          });
+        });
+        </script>
+      </div>
+    </div>
+    <!--SEARCH BAR-->
+    <div class="col">
+      <div id="navsearch" class="navbar-nav w-100 justify-content-center">
+        <form class="col-lg">
+          <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+    <!--ADD POST & AVATAR-->
+    <div class="col">
+      <div id="navuser" class="navbar-nav w-100 justify-content-center">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li>
+            <a href="#" data-toggle="modal" data-target="#postModal">
+              <img class="nav-post" src="img/add post.png">
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="nav-avatar" src="img/avatar.jpg">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="navbarDropdown">
+              <button type="button" class="profile-red dropdown-item  btn-light" id="redirex">Profile</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="post-container">
+    <div id="post">
+      <div id="photo-container">
+        <div id="photo">
+          <img class="fill" src="img/post1.jpg">
+        </div>
+      </div>
+
+      <div id="meta-container">
+        <div id="meta">
+          <div class="photo-header">
+            The Moon
+            <br>
+            <br>
+            <span class="author">by Eugenio Pastoral</span>
+            <br>
+            <span class="date">8 hours ago</span> <br>
+          </div>
+          <hr>
+          <div class="photo-description">
+            Ever wondered what the night sky would look like if you could see the Moon and stars at the same time. Well, here you go, an HDR photo of the moon.
+            <br> <br>
+            I’ve been taking photos of the moon for months but I haven’t tried this one before. Essentially, this is a composite of 4 photos: the moon tonight (both exposed for the moon and the sky), the full moon from last week, and the night sky from a year ago. Got into the idea of doing this when I saw Andrew McCarthy’s photos on Instagram. Never really had the chance to do this until tonight.
+            <br> <br>
+            I did some light processing on all 4 photos with Lightroom. I then used Photoshop to create the composite. The starry night sky photo was used as the background. I then masked the moon photo from tonight so that it will blend well with the background. After which, I added in the other moon photo from tonight that is exposed for the night sky (the blown out moon photo) so that the moon will have its glow. For the dark part, I used my picture of the full moon to add in some detail.
+          </div>
+
+          <div class="photo-actions">
+            <img class="socact-action" src="img/heart.png">
+            <a href="#" class="socact-container" data-toggle="modal" data-target="#feedModal">
+              <img class="socact-action" src="img/comment.png">
+            </a>
+            <img class="socact-action" src="img/share.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="post">
+      <div id="photo-container">
+        <div id="photo">
+          <img class="fill" src="img/post2.jpg">
+        </div>
+      </div>
+
+      <div id="meta-container">
+        <div id="meta">
+          <div class="photo-header">
+            Cotton Candy
+            <br>
+            <br>
+            <span class="author">by Eugenio Pastoral</span>
+            <br>
+            <span class="date">15 hours ago</span> <br>
+          </div>
+          <hr>
+          <div class="photo-description">
+            2019 has been pretty much amazing for my photography journey. Here are some of my favorite images from this year. Just less than 2 hours left. Happy New Year everyone!
+          </div>
+
+          <div class="photo-actions">
+            <img class="socact-action" src="img/heart.png">
+            <a href="#" class="socact-container" data-toggle="modal" data-target="#feedModal">
+              <img class="socact-action" src="img/comment.png">
+            </a>
+            <img class="socact-action" src="img/share.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="post">
+      <div id="photo-container">
+        <div id="photo">
+          <img class="fill" src="img/post3.jpg">
+        </div>
+      </div>
+
+      <div id="meta-container">
+        <div id="meta">
+          <div class="photo-header">
+            The Taal
+            <br>
+            <br>
+            <span class="author">by Eugenio Pastoral</span>
+            <br>
+            <span class="date">16 hours ago</span> <br>
+          </div>
+          <hr>
+          <div class="photo-description">
+            Spent most of the day out in the sun just to see the Taal Caldera with the cousins. I managed to get a snap of the Taal Volcano with the vista of Mount Maculot in the background on our way back.
+          </div>
+
+          <div class="photo-actions">
+            <img class="socact-action" src="img/heart.png">
+            <a href="#" class="socact-container" data-toggle="modal" data-target="#feedModal">
+              <img class="socact-action" src="img/comment.png">
+            </a>
+            <img class="socact-action" src="img/share.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="post">
+      <div id="photo-container">
+        <div id="photo">
+          <img class="fill" src="img/post4.jpg">
+        </div>
+      </div>
+
+      <div id="meta-container">
+        <div id="meta">
+          <div class="photo-header">
+            Sunset
+            <br>
+            <br>
+            <span class="author">by Eugenio Pastoral</span>
+            <br>
+            <span class="date">17 hours ago</span> <br>
+          </div>
+          <hr>
+          <div class="photo-description">
+            Wishing everyone a 𝗠𝗲𝗿𝗿𝘆 𝗖𝗵𝗿𝗶𝘀𝘁𝗺𝗮𝘀! I hope all of you are having a pleasant time with your family and friends as I am right now. Just a few more days until the year ends. Happy holidays!
+            <br><br>
+            It's been almost a year since I joined Unsplash. I have shared 25 photos which accumulated 3.5 million views in total. Took this photo of the sunset as seen from Roxas Boulevard earlier today and it's available on the platform as well.
+            <div class="photo-actions">
+              <img class="socact-action" src="img/heart.png">
+              <a href="#" class="socact-container" data-toggle="modal" data-target="#feedModal">
+                <img class="socact-action" src="img/comment.png">
+              </a>
+              <img class="socact-action" src="img/share.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="post">
+      <div id="photo-container">
+        <div id="photo">
+          <img class="fill" src="img/post5.jpg">
+        </div>
+      </div>
+
+      <div id="meta-container">
+        <div id="meta">
+          <div class="photo-header">
+            The Boat
+            <br>
+            <br>
+            <span class="author">by Eugenio Pastoral</span>
+            <br>
+            <span class="date">19 hours ago</span> <br>
+          </div>
+          <hr>
+          <div class="photo-description">
+            Had to walk a few hundred meters just to reach the nearest boat across the shore. Grab a full resolution copy of the photo over on Unsplash.
+          </div>
+
+          <div class="photo-actions">
+            <img class="socact-action" src="img/heart.png">
+            <a href="#" class="socact-container" data-toggle="modal" data-target="#feedModal">
+              <img class="socact-action" src="img/comment.png">
+            </a>
+            <img class="socact-action" src="img/share.png">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    <!--COMMENTS MODAL-->
+    <div class="modal fade" id="feedModal" role="dialog">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+        <div class="modal-content row">
+          <!-- Modal body -->
+          <div class="modal-photo-container col-xs-6 class">
+            <div class="pic-col">
+              <img class="fill" src="img/post1.jpg">
+            </div>
+          </div>
+          <div class="modal-comment-container col-xs-6 class">
+            <div class="comment-container">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <div class="modal-header">
+                Comments
+              </div>
+
+              <div class="comments">
+                <!--FIRST COMMENT-->
+                <div class="comment-cont">
+                  <img src="img/le.jpg">
+                  <div class="row-name">
+                    <strong> Leanne Marie Loyola</strong>
+                    <div class="row-comment text-break">
+                      Wow! This is so COOL!
+                    </div>
+                  </div>
+                </div>
+                <!-- SECOND COMMENT-->
+                <div class="comment-cont">
+                  <img src="img/boss.jpg">
+                  <div class="row-name">
+                    <strong> Louis Dela Cruz</strong>
+                    <div class="row-comment text-break">
+                      XD
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comment-cont">
+                  <img src="img/raf.jpg">
+                  <div class="row-name">
+                    <strong> Rafael Maderazo</strong>
+                    <div class="row-comment text-break">
+                      Prayer meeting? 👀
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comment-cont">
+                  <img src="img/thea.jpg">
+                  <div class="row-name">
+                    <strong> Thea Go</strong>
+                    <div class="row-comment text-break">
+                      mama mo
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comment-cont">
+                  <img src="img/mica.jpg">
+                  <div class="row-name">
+                    <strong>Michaela Dizon</strong>
+                    <div class="row-comment text-break">
+                      hrmpf
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comment-cont">
+                  <img src="img/albert.jpg">
+                  <div class="row-name">
+                    <strong>Albert Bofill</strong>
+                    <div class="row-comment text-break">
+                      Yawa
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comment-form">
+                <form class="col-lg">
+                  <div class="form-row">
+                    <div class="comment-input">
+                      <input class="addcomment form-control mr-sm-2" type="text" placeholder="comment" aria-label="Search">
+                    </div>
+                    <div class="comment-button">
+                      <button type="button" class="addcommentbtn btn btn-secondary">Comment</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--ADD POST MODAL-->
+    <div class="modal fade" id="postModal" role="dialog">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+        <div class="modal-content row">
+          <!-- Modal body -->
+          <div class="modal-post-header">
+            <div class="pic-row">
+              <img class="fill-row" src="img/post1.jpg">
+            </div>
+          </div>
+
+          <div class="modal-post-container">
+            <div class="modal-header">
+              Add Post
+            </div>
+
+            <div class="modal-post-fields">
+              <input class="addposttitle form-control mr-sm-2" type="text" placeholder="title" aria-label="Search">
+              <input class="addpostdesc form-control mr-sm-2" type="text" placeholder="description" aria-label="Search">
+            </div>
+            <div class="addpost-button">
+              <input type="file" id="imgUpload"/>
+              <button type="button" class="addpostbtn btn btn-secondary" required>Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--EDIT POST MODAL-->
+  <div class="modal fade" id="editModal" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+      <div class="modal-content row">
+        <!-- Modal body -->
+        <div class="modal-post-header">
+          <div class="pic-row">
+            <img class="fill-row" src="img/post1.jpg">
+          </div>
+        </div>
+
+        <div class="modal-post-container">
+          <div class="modal-header">
+            Edit Post
+          </div>
+
+          <div class="modal-post-fields">
+            <input class="addposttitle form-control mr-sm-2" type="text" aria-label="Search">
+            <input class="addpostdesc form-control mr-sm-2" type="text" aria-label="Search">
+          </div>
+          <div class="addpost-button">
+            <button type="button" class="editpostbtn btn btn-secondary">Edit Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

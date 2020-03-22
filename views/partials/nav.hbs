@@ -1,0 +1,48 @@
+<nav class="folioBar navbar navbar-expand-lg navbar-light bg-light">
+    <!--FOLIO TYPED-->
+    <div class="col">
+      <div class="logo navbar-brand d-flex w-50 mr-auto" id="navfolio">
+        <button class="btn btn-link"id="home-red"><h1><span id="typed"></span></h1></button>
+        <script>
+        $('document').ready(function(){
+          var typed = new Typed('#typed', {
+            strings:["f o l i o ."],
+            backSpeed: 40,
+            typeSpeed: 55,
+            onComplete: function () {
+              $(".typed-cursor").hide();
+            }
+          });
+        });
+        </script>
+      </div>
+    </div>
+    <!--SEARCH BAR-->
+    <div class="col">
+      <div id="navsearch" class="navbar-nav w-100 justify-content-center">
+        <form class="col-lg">
+          <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+    <!--ADD POST & AVATAR-->
+    <div class="col">
+      <div id="navuser" class="navbar-nav w-100 justify-content-center">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li>
+            <a href="#" data-toggle="modal" data-target="#postModal">
+              <img class="nav-post" src="img/add post.png">
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="nav-avatar" src="img/avatar.jpg">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="navbarDropdown">
+              <button type="button" class="profile-red dropdown-item  btn-light" id="redirex">Profile</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
