@@ -1,7 +1,7 @@
 {
   "name": "temp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Folio is a social media platform designed for creatives. The website focuses on the content uploaded by the users. Basic social media features like as posting, commenting, and following users can be done.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +12,13 @@
     "express": "^4.17.1",
     "hbs": "^4.1.0",
     "typed.js": "^2.0.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccapdev1920T2/s11g1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ccapdev1920T2/s11g1/issues"
+  },
+  "homepage": "https://github.com/ccapdev1920T2/s11g1#readme"
 }
