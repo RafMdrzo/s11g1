@@ -76,7 +76,7 @@ hr {
   margin-right: 1.5%;
 }
 nav{
-  position: absolute;
+  position: relative;
 }
 #navfolio {
   float: left;
