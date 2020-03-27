@@ -17,7 +17,7 @@ app.get("/", function(req, res)
 
 app.get("/profile", function(req, res)
 {
-       res.render("profile", {});
+       res.render("profile", {avatar_id: "avatar"});
 });
 
 
