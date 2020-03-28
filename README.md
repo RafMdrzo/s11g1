@@ -8,11 +8,20 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Kyra Choa
 
 ## Features
-– Upload photos (aspect ratio of 4:5 or 1:1)
+- Upload photos (aspect ratio of 4:5 or 1:1)
 - Account management (create, delete, log in)
 - Post management (create, edit, delete)
 - Profile management (edit)
 - Social media actions (like, comment, share)
+
+## Roadmap
+- Create HTML designs (DONE)
+- Convert to Node.js (DONE)
+- Debug web server (IN THE PROCESS)
+- Create database (IN THE PROCESS)
+- Construct MVC diagram (IN THE PROCESS)
+- Implement database in the server
+- Finalize the web app
 
 ## How to setup this GitHub repository in your machine
 
