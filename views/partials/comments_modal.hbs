@@ -19,67 +19,15 @@
             <div class="comments">
               {{#each comment}}
                 <div class="comment-cont">
-                  <img src="{{profpic}}">
+                  <img src="{{this.profpic}}">
                   <div class="row-name">
-                    <strong>{{name}}</strong>
+                    <strong>{{this.name}}</strong>
                     <div class="row-comment text-break">
-                      {{text}}
+                      {{this.text}}
                     </div>
                   </div>
                 </div>
               {{/each}}
-              
-              <!-- 
-              <div class="comment-cont">
-                <img src="img/boss.jpg">
-                <div class="row-name">
-                  <strong> Louis Dela Cruz</strong>
-                  <div class="row-comment text-break">
-                    XD
-                  </div>
-                </div>
-              </div>
-
-              <div class="comment-cont">
-                <img src="img/raf.jpg">
-                <div class="row-name">
-                  <strong> Rafael Maderazo</strong>
-                  <div class="row-comment text-break">
-                    Prayer meeting? 👀
-                  </div>
-                </div>
-              </div>
-
-              <div class="comment-cont">
-                <img src="img/thea.jpg">
-                <div class="row-name">
-                  <strong> Thea Go</strong>
-                  <div class="row-comment text-break">
-                    mama mo
-                  </div>
-                </div>
-              </div>
-
-              <div class="comment-cont">
-                <img src="img/mica.jpg">
-                <div class="row-name">
-                  <strong>Michaela Dizon</strong>
-                  <div class="row-comment text-break">
-                    hrmpf
-                  </div>
-                </div>
-              </div>
-
-              <div class="comment-cont">
-                <img src="img/albert.jpg">
-                <div class="row-name">
-                  <strong>Albert Bofill</strong>
-                  <div class="row-comment text-break">
-                    Yawa
-                  </div>
-                </div>
-              </div>
-            </div>-->
 
             <div class="comment-form">
               <form class="col-lg">
