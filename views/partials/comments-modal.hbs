@@ -17,17 +17,18 @@
             </div>
 
             <div class="comments">
-              <!--FIRST COMMENT-->
-              <div class="comment-cont">
-                <img src="img/le.jpg">
-                <div class="row-name">
-                  <strong> Leanne Marie Loyola</strong>
-                  <div class="row-comment text-break">
-                    Wow! This is so COOL!
+              {{#each comment}}
+                <div class="comment-cont">
+                  <img src="{{this.profpic}}">
+                  <div class="row-name">
+                    <strong>{{this.name}}</strong>
+                    <div class="row-comment text-break">
+                      {{this.text}}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- SECOND COMMENT-->
+              
+              <!-- 
               <div class="comment-cont">
                 <img src="img/boss.jpg">
                 <div class="row-name">
@@ -77,7 +78,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
 
             <div class="comment-form">
               <form class="col-lg">
