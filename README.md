@@ -7,6 +7,13 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Rafael Maderazo
 - Kyra Choa
 
+## Features
+– Upload photos (aspect ratio of 4:5 or 1:1)
+- Account management (create, delete, log in)
+- Post management (create, edit, delete)
+- Profile management (edit)
+- Social media actions (like, comment, share)
+
 ## How to setup this GitHub repository in your machine
 
 1. Install [Git](https://git-scm.com/downloads) if you haven't yet.
