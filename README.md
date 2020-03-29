@@ -23,6 +23,13 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Implement database in the server
 - Finalize the web app
 
+## Dependencies
+- Node.js
+- Express
+- Express Handlebars
+- Express Session
+- Body Parser
+
 ## How to setup this GitHub repository in your machine
 
 1. Install [Git](https://git-scm.com/downloads) if you haven't yet.
