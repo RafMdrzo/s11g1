@@ -13,6 +13,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
+//login
 app.get("/", function(req, res)
 {
   if(req.session.loggedin != true) {
@@ -23,7 +24,7 @@ app.get("/", function(req, res)
       post: [
         {
           post_image: 'img/landing1.jpg',
-          post_title: 'Manila at Night',
+          post_title: 'Manila Bay',
           post_author: 'Eugenio Pastoral',
           post_elapsed: '8 hours ago',
           post_description: 'I teased this shoot over on my Instagram a few weeks ago. Taken two days before Christmas last year. I first attempted to take a shot of this way back in November 2018 but was unsuccessful to my eyes. Fortunately, I spent that night near the location with all my gear.'
@@ -79,6 +80,16 @@ response.end();
 }
 });
 */
+
+//logout
+app.get('/logout', function(req, res) {
+    req.session.destroy((err) => {
+        if(err) {
+            return console.log(err);
+        }
+        res.redirect('/');
+    });
+});
 
 app.get("/user/:username", function(req, res)
 {

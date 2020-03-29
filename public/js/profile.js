@@ -6,13 +6,18 @@ $(document).ready(function()
         window.location.href = "profile";
     });
 
-    function readURL(input) 
+    $(".profile-blue").click(function()
     {
-        if (input.files && input.files[0]) 
+        window.location.href = "logout";
+    });
+
+    function readURL(input)
+    {
+        if (input.files && input.files[0])
         {
           var reader = new FileReader();
 
-          reader.onload = function(e) 
+          reader.onload = function(e)
           {
             $('#display-pic').attr('src', e.target.result);
           }
@@ -21,7 +26,7 @@ $(document).ready(function()
         }
     }
 
-    $("#imgInp").change(function() 
+    $("#imgInp").change(function()
     {
       readURL(this);
     });
@@ -59,6 +64,6 @@ $(document).ready(function()
       {
         var imgLoc = $(this).children("div").children("img").attr("src");
         $("#view-pic-cont").attr("src", imgLoc);
-       
+
       });
 });

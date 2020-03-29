@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.profile-red
+.profile-red, .profile-blue
 {
   opacity: 100%;
 }
