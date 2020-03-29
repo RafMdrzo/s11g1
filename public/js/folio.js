@@ -90,22 +90,22 @@ $( document ).ready(function()
         passVal = $("#passCode").val("");
         confVal = $("#conf_pass").val("");
     });
-/*LOG-IN*/
-    /*MASTER ACCOUNT FOR LOGGING IN (TEMPORARY ONLY) */
-    $("#logBtn").click(function()
-    {
-        if($("#userLog").val()=="eugeniopastoral")
-        {
-            if($("#passLog").val()=="superpassword")
-            {
-                window.location.href = "home";
-            }
-            else
-            {
-                $("#passLog").css("border-color", "red");
-            }
-        }
-    });
+// /*LOG-IN*/
+//     /*MASTER ACCOUNT FOR LOGGING IN (TEMPORARY ONLY) */
+//     $("#logBtn").click(function()
+//     {
+//         if($("#userLog").val()=="eugeniopastoral")
+//         {
+//             if($("#passLog").val()=="superpassword")
+//             {
+//                 window.location.href = "home";
+//             }
+//             else
+//             {
+//                 $("#passLog").css("border-color", "red");
+//             }
+//         }
+//     });
 
 /* COMMENT */
     $(".addcommentbtn").click(function()
