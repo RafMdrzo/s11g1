@@ -1,35 +1,84 @@
 {{#each post}}
 <div id="post-container">
-    <div id="post">
-      <div id="photo-container">
-        <div id="photo">
+  <div id="post">
+    <div id="photo-container">
+      <div id="photo">
+        <img class="fill" src="{{this.post_image}}">
+      </div>
+    </div>
+
+    <div id="meta-container">
+      <div id="meta">
+        <div class="photo-header">
+          {{this.post_title}}
+          <br>
+          <br>
+          <span class="author">by {{this.post_author}}</span>
+          <br>
+          <span class="date">{{this.post_elapsed}}</span> <br>
+        </div>
+        <hr>
+        <div class="photo-description">
+          {{this.post_description}}
+        </div>
+        <div class="photo-actions">
+          <img class="socact-action" src="img/heart.png">
+          <a href="#" class="socact-container" data-toggle="modal" data-target="#{{this.post_id}}">
+            <img class="socact-action" src="img/comment.png">
+          </a>
+          <img class="socact-action" src="img/share.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="{{this.post_id}}" role="dialog">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+    <div class="modal-content row">
+      <!-- Modal body -->
+      <div class="modal-photo-container col-xs-6 class">
+        <div class="pic-col">
           <img class="fill" src="{{this.post_image}}">
         </div>
       </div>
+      <div class="modal-comment-container col-xs-6 class">
+        <div class="comment-container">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="modal-header">
+            Comments
+          </div>
 
-      <div id="meta-container">
-        <div id="meta">
-          <div class="photo-header">
-            {{this.post_title}}
-            <br>
-            <br>
-            <span class="author">by {{this.post_author}}</span>
-            <br>
-            <span class="date">{{this.post_elapsed}}</span> <br>
-          </div>
-          <hr>
-          <div class="photo-description">
-            {{this.post_description}}
-          </div>
-          <div class="photo-actions">
-            <img class="socact-action" src="img/heart.png">
-            <a href="#" class="socact-container" data-toggle="modal" data-target="#feedModal">
-              <img class="socact-action" src="img/comment.png">
-            </a>
-            <img class="socact-action" src="img/share.png">
+          <div class="comments">
+            {{#each comment}}
+            <div class="comment-cont">
+              <img src="{{this.profpic}}">
+              <div class="row-name">
+                <strong>{{this.name}}</strong>
+                <div class="row-comment text-break">
+                  {{this.text}}
+                </div>
+              </div>
+            </div>
+            {{/each}}
+
+            <div class="comment-form">
+              <form class="col-lg">
+                <div class="form-row">
+                  <div class="comment-input">
+                    <input class="addcomment form-control mr-sm-2" type="text" placeholder="comment" aria-label="Search">
+                  </div>
+                  <div class="comment-button">
+                    <button type="button" class="addcommentbtn btn btn-secondary">Comment</button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 {{/each}}
