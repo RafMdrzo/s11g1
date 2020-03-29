@@ -11,7 +11,6 @@ const path = require('path');
 const profileRouter = require(__dirname, '/routes/profile');
 const feedRouter = require(__dirname, '/routes/feed');
 
-
 const routes = require(__dirname + '/routes/routes.js');
 
 app.engine( 'hbs', exphbs({
