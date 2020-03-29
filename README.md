@@ -17,7 +17,10 @@ Folio is a social media platform designed for creatives. The website focuses on 
 ## Roadmap
 - Create HTML designs (DONE)
 - Convert to Node.js (DONE)
-- Debug web server (IN THE PROCESS)
+- Authentication (ALMOST DONE)
+- User actions (ALMOST DONE)
+- Social media actions (JUST STARTED)
+- Debug web server
 - Create database (IN THE PROCESS)
 - Construct MVC diagram (IN THE PROCESS)
 - Implement database in the server
@@ -40,6 +43,12 @@ Folio is a social media platform designed for creatives. The website focuses on 
 4. Check if the email address is updated by running this command:
 `git config --global user.email`
 5. Start contributing!
+
+## How to run
+1. Execute index.js.
+2. To login, enter **eugeniopastoral** and **helloworld** as the username and password respectively.
+3. You'll now be able to view and interact with posts. You can also modify your account and profile information.
+4. To logout, click the avatar and press logout.
 
 ## Stuff to remember
 
