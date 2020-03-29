@@ -9,6 +9,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
@@ -16,6 +17,26 @@ app.get("/", function(req, res)
 {
   if(req.session.loggedin != true) {
     res.render("login", {layout: false});
+  }
+  else {
+    res.render("home", {
+      post: [
+        {
+          post_image: 'img/landing1.jpg',
+          post_title: 'Manila at Night',
+          post_author: 'Eugenio Pastoral',
+          post_elapsed: '8 hours ago',
+          post_description: 'I teased this shoot over on my Instagram a few weeks ago. Taken two days before Christmas last year. I first attempted to take a shot of this way back in November 2018 but was unsuccessful to my eyes. Fortunately, I spent that night near the location with all my gear.'
+        },
+        {
+          post_image: 'img/landing4.jpg',
+          post_title: 'Lights',
+          post_author: 'Eugenio Pastoral',
+          post_elapsed: '12 hours ago',
+          post_description: 'It was a day before Christmas Eve. It has been raining continuously for a few days. Overlooking the streets, I was amused by how passing cars light up the moist window.'
+        }
+      ]
+    });
   }
 });
 
@@ -26,7 +47,7 @@ app.post('/auth', function(req, res) {
     if(password == "helloworld") {
       req.session.loggedin = true;
       req.session.username = username;
-      res.redirect('/home');
+      res.redirect('/');
     }
   }
   else {
@@ -62,11 +83,6 @@ response.end();
 app.get("/user/:username", function(req, res)
 {
   res.render("profile", {avatar_id: "avatar"});
-});
-
-app.get("/home", function(req, res)
-{
-  res.render("home", {});
 });
 
 module.exports = app;
