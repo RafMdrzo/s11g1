@@ -44,6 +44,11 @@ Folio is a social media platform designed for creatives. The website focuses on 
 `git config --global user.email`
 5. Start contributing!
 
+## How to run
+1. Execute index.js.
+2. To login, enter **eugeniopastoral** and **helloworld** as the username and password respectively.
+3. You'll now be able to view and interact with posts. You can also modify your account and profile information.
+
 ## Stuff to remember
 
 1. After committing changes locally, don't forget to push those changes to the repository.
