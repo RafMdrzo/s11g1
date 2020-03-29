@@ -21,6 +21,7 @@ app.get("/", function(req, res)
   }
   else {
     res.render("home", {
+      avatar: 'img/avatar.jpg',
       post: [
         {
           post_image: 'img/landing1.jpg',
@@ -131,7 +132,6 @@ app.post('/auth', function(req, res) {
   res.end();
 });
 
-
 //db implementation of login
 /*
 app.post('/auth', function(request, response) {
@@ -165,7 +165,7 @@ app.get('/logout', function(req, res) {
   });
 });
 
-app.get("/user/:username", function(req, res)
+app.get("/:username", function(req, res)
 {
   res.render("profile", {avatar_id: "avatar"});
 });
