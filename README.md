@@ -48,6 +48,7 @@ Folio is a social media platform designed for creatives. The website focuses on 
 1. Execute index.js.
 2. To login, enter **eugeniopastoral** and **helloworld** as the username and password respectively.
 3. You'll now be able to view and interact with posts. You can also modify your account and profile information.
+4. To logout, click the avatar and press logout.
 
 ## Stuff to remember
 
