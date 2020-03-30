@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 
 // import module `User` from `../models/UserModel.js`
-const User = require('./UserModel.js');
-// ccapdev-mongoose is the name of the database
+const User = require('./User.js');
+// db connect to
 const url = 'mongodb://localhost:27017/ServerJS';
 
 
