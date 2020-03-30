@@ -12,7 +12,7 @@ var PostSchema = new mongoose.Schema({
     },
     dateCreated:{
         type: Date,
-        required: true
+        default: Date.now
     },
     likes:{
         type: mongoose.Schema.Types.ObjectId,

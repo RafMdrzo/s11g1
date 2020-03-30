@@ -13,7 +13,7 @@ var LikeSchema = new mongoose.Schema({
     },
     dateLiked:{
         type: Date,
-        required: true
+        default: Date.now
     }
 });
 
