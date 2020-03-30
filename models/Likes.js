@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var CommentSchema = new mongoose.Schema({
+var LikeSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -11,14 +11,10 @@ var CommentSchema = new mongoose.Schema({
         required: true,
         ref: 'Posts'
     },
-    dateCreated:{
+    dateLiked:{
         type: Date,
-        required: true
-    },
-    text:{
-        type: String,
         required: true
     }
 });
 
-module.exports = mongoose.model('Comments', CommentSchema);
+module.exports = mongoose.model('Likes', LikeSchema);
