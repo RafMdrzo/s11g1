@@ -172,11 +172,13 @@ app.get("/:username", function(req, res)
   res.render("profile", {
     avatar_id: "avatar.jpg",
     avatar: 'img/avatar.jpg',
-    
+
     name: "Eugenio Pastoral",
     username: "@"+req.session.username,
     location: "Manila, Philippines",
     bio: "21-year-old photographer based in the Philippines.",
+    status: 0,
+    follow: 1,
 
     posts: [
       {

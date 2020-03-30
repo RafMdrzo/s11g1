@@ -4,12 +4,27 @@
           <div class="prof-img-cont">
             <img  class = "fill" src="img/{{avatar}}">
           </div>
-
-          <div>
-            <button type="button" class="btn btn-primary" id="follow">
-              Follow <!-- FOLLOW/UNFOLLOW -->
-            </button>
-          </div>
+          {{#if status}}
+            {{#if follow}}
+              <div>
+                <button type="button" class="btn btn-primary profbtn">
+                  Unfollow <!-- FOLLOW/UNFOLLOW -->
+                </button>
+              </div>
+            {{else}}
+              <div>
+                <button type="button" id="follow" class="btn btn-primary profbtn">
+                  Follow <!-- FOLLOW/UNFOLLOW -->
+                </button>
+              </div>
+            {{/if}}
+          {{else}}
+            <div>
+              <button type="button" id="follow" class="btn btn-primary profbtn" data-toggle="modal" data-target="#accset">
+                Edit Profile
+              </button>
+            </div>
+          {{/if}}
         </div>
 
         <div class="profile-data">
