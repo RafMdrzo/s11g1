@@ -212,6 +212,6 @@ $( document ).ready(function()
 
     $("#navfolio #home-red").click(function()
     {
-        window.location.href = "home.html";
+        window.location.href = "home";
     });
 });
