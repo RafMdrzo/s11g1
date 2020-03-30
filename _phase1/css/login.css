@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-webkit-keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#folio{
+  margin-top: 10%;
+  margin-bottom: 2px;
+  padding-bottom: 40px;
+}
+
+#regForm{
+  position: static;
+  width:400px;
+  height: 300px;
+  background: #f2f2f2;
+  border-color: #A8A8A8;
+  border-radius: 10px;
+  border-style:solid;
+  border-width: 0.25px;
+  margin:0px;
+  box-shadow: 2px 2px 20px black;
+  opacity: 100%
+}
+
+#regBtn{
+  background-color: #16A085;
+  border-radius: 50px;
+  border-width: 0;
+  position: static;
+  top: 70%;
+  height: 50px;
+  width:120px;
+  color: #f2f2f2;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left:20px;
+  text-align: center;
+  display: inline-block;
+  padding-top: 3%;
+  vertical-align: middle;
+}
+
+#logBtn {
+  background-color: #16A085;
+  border-radius: 50px;
+  border-width: 0;
+  position: static;
+  top: 70%;
+  height: 50px;
+  width:120px;
+  color: #f2f2f2;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  padding-top: 3%;
+  vertical-align: middle;
+}
+#cancelMod{
+  border-radius: 50px;
+  width: 90px;
+}
+#regMod{
+  border-radius: 50px;
+  width: 90px;
+}
+
+#loginForm{
+  align-content: center;
+  justify-content: center;
+  padding: 20px 20px;
+  opacity: 100%;
+  margin-bottom: -35px;
+}
+
+#typed{
+  color: white;
+  text-shadow: 1px 1px 10px black;
+}
+
+#buttonCont {
+  margin-top: 35px;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  padding-bottom: 15%;
+  align-items: center;
+}
+
+.form-control {
+  border-radius: 10px;
+  font-style: italic;
+  height: 50px;
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 55px;
+  letter-spacing: 5px;
+}
+
+body
+{
+  background-image: url('../img/landing0.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+hr {
+  margin-top: 25px;
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+html
+{
+  height: 100%;
+}
+#forgotten{
+  align-self: left;
+  font-size: 15px;
+  color: #16A085;
+}
+
+#passEdit{
+  margin-bottom: 2px;
+}
+
+#forgottenModal{
+  border: 3px;
+}
