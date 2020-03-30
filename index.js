@@ -30,3 +30,5 @@ app.listen(port, function()
 {
     console.log('listening at port ' + port);
 });
+
+module.exports = app;
