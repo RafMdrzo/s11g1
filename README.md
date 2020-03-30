@@ -28,6 +28,8 @@ Folio is a social media platform designed for creatives. The website focuses on 
 
 ## Dependencies
 - Node.js
+- MongoDB
+- Mongoose
 - Express
 - Express Handlebars
 - Express Session
