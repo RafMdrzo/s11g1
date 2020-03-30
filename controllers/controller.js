@@ -1,12 +1,14 @@
 //import modules
 const router = express.Router();
-const assert = require('assert');
-const db = require('./models/db.js');
 
-const url = 'mongodb://localhost:27017/ServerJS';
 
 const controller = {
 
+    getIndex: function (req, res) {
+
+        // render `../views/index.hbs`
+        res.render('login');
+    }
 }
 
 module.exports = controller;

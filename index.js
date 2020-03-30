@@ -13,6 +13,9 @@ const feedRouter = require(__dirname, '/routes/feed');
 
 const routes = require(__dirname + '/routes/routes.js');
 
+const db = require('./models/db.js');
+
+
 app.engine( 'hbs', exphbs({
   extname: 'hbs',
   defaultView: 'main',
