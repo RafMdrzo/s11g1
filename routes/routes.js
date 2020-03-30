@@ -176,6 +176,8 @@ app.get("/:username", function(req, res)
     username: "@"+req.session.username,
     location: "Manila, Philippines",
     bio: "21-year-old photographer based in the Philippines.",
+    status: 1,
+    follow: 1,
 
     posts: [
       {
