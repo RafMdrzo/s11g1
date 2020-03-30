@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // import module `User` from `../models/UserModel.js`
 const User = require('./User.js');
 // db connect to
-const url = 'mongodb://localhost:27017/ServerJS';
+const url = 'mongodb://localhost:27017/folioDB';
 
 
 // additional connection options
