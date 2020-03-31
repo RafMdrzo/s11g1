@@ -13,10 +13,6 @@ var ImageSchema = new mongoose.Schema({
     image:{
         type: ArrayBuffer,
         required: false
-    },
-    dateCreated: {
-        type: Date,
-        required: true
     }
 });
 
