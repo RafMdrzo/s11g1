@@ -52,6 +52,13 @@ const database = {
         });
     },
 
+    findById: function(model, query, callback) {
+        model.findById(query, function (error, result) {
+          if(error) throw error;
+          return callback(result);
+        });
+    },
+
     // searches for multiple documents based on the model `model`
     // filtered through the object `query`
     // limits the fields returned based on the string `projection`
