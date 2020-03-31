@@ -123,7 +123,10 @@ app.get('/home', function(req, res)
 
 app.get('/tester', function(req, res)
 {
-  res.render('reg_landing', {layout: false});
+  res.render('reg_landing', {
+    layout: false,
+    avatar: 'img/blank.png'
+  });
 })
 //db implementation of login
 /*

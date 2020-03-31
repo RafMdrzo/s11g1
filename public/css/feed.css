@@ -301,3 +301,8 @@ a:hover ,span{
   border-radius: 60px;
   width: 6vw;
 }
+
+#loc_assign
+{
+  border-radius: 60px;
+}
