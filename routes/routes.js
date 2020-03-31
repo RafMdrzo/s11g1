@@ -6,6 +6,7 @@ const app = express();
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const loginController = require('../controllers/loginController.js');
+const feedController = require('../controllers/feedController.js');
 
 app.use(session({
   secret: 'secret',
@@ -17,9 +18,11 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 //login
-app.get('/', loginController.getLogIn);
+app.get('/login', loginController.getLogIn);
 
-app.post('/', loginController.postLogIn);
+app.post('/login', loginController.postLogIn);
+
+app.get('/', feedController.getPosts);
 
 //db implementation of login
 /*
