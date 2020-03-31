@@ -2,27 +2,25 @@
   <div class="modal fade" id="postModal" role="dialog">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 
-      <div class="modal-content row">
+      <div class="modal-content ">
         <!-- Modal body -->
-        <div class="modal-post-header">
-          <div class="pic-row">
-            <img class="fill-row" src="img/post1.jpg">
-          </div>
-        </div>
-
         <div class="modal-post-container">
           <div class="modal-header">
             Add Post
           </div>
+          <form method='POST'>
+
+          
+          <input class='filepond' type='file'> 
 
           <div class="modal-post-fields">
             <input class="addposttitle form-control mr-sm-2" type="text" placeholder="title" aria-label="Search">
             <input class="addpostdesc form-control mr-sm-2" type="text" placeholder="description" aria-label="Search">
           </div>
           <div class="addpost-button">
-            <button type="button" class="addpostbtn btn btn-secondary">Upload</button>
-            <button type="button" class="addpostbtn btn btn-secondary">Post</button>
+            <button type="submit" class="addpostbtn btn btn-secondary">Post</button>
           </div>
+          </form>
         </div>
       </div>
     </div>
