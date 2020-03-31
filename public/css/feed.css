@@ -294,6 +294,7 @@ a:hover ,span{
 #bioLocCont {
   position: relative;
   top: 15vh;
+  width: 40vw;
 }
 
 #nextBut {
