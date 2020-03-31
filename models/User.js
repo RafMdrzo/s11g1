@@ -30,6 +30,14 @@ var UserSchema = new mongoose.Schema({
     emailConf: {
         type: Boolean,
         required: false
+    },
+    avatar: {
+        type: Buffer,
+        required: false
+    },
+    imgType: {
+        type: String,
+        required: false
     }
 });
 

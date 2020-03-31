@@ -11,26 +11,55 @@
   <script src="js/typed.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
-  <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
-  <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-  <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
-
+ <script defer src = 'js/folio.js'></script>
   <script src="js/profile.js"></script>
-  <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
-  <script defer src='js/fileupload.js'></script>
 
   <!-- BOOTSTRAP AND CSS -->
-   <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-  <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/feed.css" type="text/css">
   <link rel="stylesheet" href="css/profile.css" type="text/css">
   <link rel="stylesheet" href="css/modal.css" type="text/css">
  
+
 </head>
 <body>
-  {{> nav}}
-  {{{ body }}}
+  {{> custom_nav}}
+  <div class="vertical-center hidden">
+      <!--REGISTRATION -->
+      <div class="container" id = 'bioLocCont' align = "center">
+
+        <div class="container" id="navfolio">
+        <h1><span id="next"></span></h1>
+        <script>
+        $('document').ready(function(){
+          var typed = new Typed('#next', {
+            strings:['Welcome to folio.'],
+            backSpeed: 40,
+            typeSpeed: 55,
+            onComplete: function () {
+              $(".typed-cursor").hide();
+            }
+          });
+        });
+        </script>
+      </div>
+        <!-- REGISTERED USER'S LOG-IN -->
+        <form id="bioLocForm" method="POST" action="home">
+            <div class="form-group new-data">
+                Bio <br>
+                <textarea name='bio_assign' type="text" class="form-control text-center" id="bio_assign" placeholder="Bio"> </textarea>
+            </div>
+
+            <div class="form-group new-data">
+                Location <br>
+                <input name='loc_assign' type="text" class="form-control text-center" id="loc_assign" placeholder="Location">
+            </div>
+            <button id="nextBut" type="submit" class="btn btn-dark">Next</button>
+        </form>
+
+        <hr>
+      </div>
+  </div>
+
 </body>
 </html>

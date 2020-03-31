@@ -3,8 +3,6 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
-const formidable = require('formidable');
-
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const loginController = require('../controllers/loginController.js');
@@ -122,6 +120,14 @@ app.get('/home', function(req, res)
     ]
   });
 });
+
+app.get('/tester', function(req, res)
+{
+  res.render('reg_landing', {
+    layout: false,
+    avatar: 'img/blank.png'
+  });
+})
 //db implementation of login
 /*
 app.post('/auth', function(request, response) {
