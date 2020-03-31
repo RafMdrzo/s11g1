@@ -10,16 +10,20 @@
   "license": "ISC",
   "dependencies": {
     "assert": "^2.0.0",
+    "bcryptjs": "^2.4.3",
     "body": "^5.1.0",
     "body-parser": "^1.19.0",
     "cjs": "0.0.11",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.0",
     "express-session": "^1.17.0",
+    "formidable": "^1.2.2",
     "hbs": "^4.1.0",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.6",
     "parser": "^0.1.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "typed.js": "^2.0.11"
   },
   "repository": {

@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
 const typed = require('typed.js');
+const formidable = require('formidable');
 
 const port = process.env.PORT || 9090;
 const app = express();

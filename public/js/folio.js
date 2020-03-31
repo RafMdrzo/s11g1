@@ -15,6 +15,7 @@ $( document ).ready(function()
         }
     }
 /*REGISTRATION*/
+var check = false;
     function checkPass()
     {
         userName = $("#userName").val();
@@ -48,29 +49,7 @@ $( document ).ready(function()
         {
             $("#passCode").css("border-color", "green");
             $("#confVal").css("border-color", "green");
-            var check = false;
-            for(x in users)
-            {
-                if(x.getUsername == userName)
-                {
-                    $("#error-msg").val("Username already exists.");
-                    check = true;
-                }
-            }
-
-            if(check == true)
-            {
-                $("#userName").css("border-color", "red");
-                $("#error-msg").val("Username already exists.");
-            }
-            else
-            {
-                var person = new createUser(userName, firstName, lastName, email, passVal);
-                users.push(person);
-
-                $("#userName").css("border-color", "green");
-                $("#error-msg").val("");
-            }
+            check = true;
         }
 
     }
@@ -78,6 +57,15 @@ $( document ).ready(function()
     $("#regMod").click(function()
     {
         checkPass();
+        if(check == true)
+        {
+            $('form #_regForm').submit();
+        }
+    });
+
+    $("#logBtn").click(function()
+    {
+        $('form #loginForm').submit();
     });
 
     $("#cancelMod").click(function()
