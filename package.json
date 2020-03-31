@@ -12,6 +12,7 @@
     "assert": "^2.0.0",
     "body": "^5.1.0",
     "body-parser": "^1.19.0",
+    "cjs": "0.0.11",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.0",
     "express-session": "^1.17.0",
