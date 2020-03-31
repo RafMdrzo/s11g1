@@ -290,3 +290,13 @@ a:hover ,span{
 {
   margin-bottom: 2%;
 }
+
+#bioLocCont {
+  position: relative;
+  top: 15vh;
+}
+
+#nextBut {
+  border-radius: 60px;
+  width: 6vw;
+}

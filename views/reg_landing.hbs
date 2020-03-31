@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <!--ADDING MODALS-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="js/typed.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+ <script defer src = 'js/folio.js'></script>
+  <script src="js/profile.js"></script>
+
+  <!-- BOOTSTRAP AND CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/feed.css" type="text/css">
+  <link rel="stylesheet" href="css/profile.css" type="text/css">
+  <link rel="stylesheet" href="css/modal.css" type="text/css">
+ 
+
+</head>
+<body>
+  {{> custom_nav}}
+  <div class="vertical-center hidden">
+      <!--REGISTRATION -->
+      <div class="container" id = 'bioLocCont' align = "center">
+
+        <div class="container" id="navfolio">
+        <h1><span id="next"></span></h1>
+        <script>
+        $('document').ready(function(){
+          var typed = new Typed('#next', {
+            strings:['Welcome to folio.'],
+            backSpeed: 40,
+            typeSpeed: 55,
+            onComplete: function () {
+              $(".typed-cursor").hide();
+            }
+          });
+        });
+        </script>
+      </div>
+        <!-- REGISTERED USER'S LOG-IN -->
+        <form id="bioLocForm" method="POST" action="home">
+            <div class="form-group new-data">
+                Bio <br>
+                <textarea name='bio_assign' type="text" class="form-control text-center" id="newbio" placeholder="Bio"> </textarea>
+            </div>
+
+            <div class="form-group new-data">
+                Location <br>
+                <input name='loc_assign' type="text" class="form-control text-center" id="newloc" placeholder="Location">
+            </div>
+            <button id="nextBut" type="submit" class="btn btn-dark">Next</button>
+        </form>
+
+        <hr>
+      </div>
+  </div>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 var users = [];
 $( document ).ready(function()
 {
+    $(".hidden").hide().fadeIn(1500);
     function createUser(username, firstname, lastname, email, password)
     {
         this.username = username;
