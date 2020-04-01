@@ -8,15 +8,15 @@
           <div class="modal-header">
             Add Post
           </div>
-          <form method='POST'>
+          <form id='addPostForm'method='POST'>
 
           
           <input class='filepond' type='file'> 
 
           <div class="modal-post-fields">
-            <input class="addposttitle form-control mr-sm-2" type="text" placeholder="title" aria-label="Search">
-            <input class="addpostdesc form-control mr-sm-2" type="text" placeholder="description" aria-label="Search">
+            <input class="addposttitle form-control mr-sm-2" type="text" placeholder="title">
           </div>
+            <textarea form ='addPostForm' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="description"></textarea>
           <div class="addpost-button">
             <button type="submit" class="addpostbtn btn btn-secondary">Post</button>
           </div>

@@ -297,6 +297,13 @@ a:hover ,span{
   width: 40vw;
 }
 
+#reg_avatar
+{
+  position: relative;
+  top: 20vh;
+  width: 70vw;
+}
+
 #nextBut {
   border-radius: 60px;
   width: 6vw;
