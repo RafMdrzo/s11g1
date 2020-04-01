@@ -1,0 +1,9 @@
+.filepond--root {
+    max-height: 58vh;
+    
+    min-height: 58vh;
+    max-width: 30vw;
+  
+    min-width: 30vw;
+  }
+  
