@@ -297,6 +297,13 @@ a:hover ,span{
   width: 40vw;
 }
 
+#reg_avatar
+{
+  position: relative;
+  top: 20vh;
+  width: 70vw;
+}
+
 #nextBut {
   border-radius: 60px;
   width: 6vw;
@@ -305,4 +312,12 @@ a:hover ,span{
 #loc_assign
 {
   border-radius: 60px;
+}
+.filepond--root {
+  max-height: 58vh;
+  
+  min-height: 58vh;
+  max-width: 30vw;
+
+  min-width: 30vw;
 }
