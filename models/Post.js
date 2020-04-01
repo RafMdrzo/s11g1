@@ -18,6 +18,16 @@ var PostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: false,
         ref: 'Likes'
+    },
+    postPic:
+    {
+        type: Buffer,
+        required: false
+    },
+    imgType: 
+    {
+        type: String,
+        required: false
     }
 });
 
