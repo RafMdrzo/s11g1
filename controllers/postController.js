@@ -103,10 +103,6 @@ const postController = {
                 res.send(500);
             }
         });
-
-            
-
-        console.log("i'm outside bitch");
     }
      /*,
     postEditPost: async function (req, res){

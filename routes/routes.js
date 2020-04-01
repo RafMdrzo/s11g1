@@ -14,6 +14,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 const postController = require('../controllers/postController.js');
+const profileController = require('../controllers/profileController.js');
 
 app.use(session({
   cookieName:'session',
@@ -54,47 +55,7 @@ app.get('/logout', function(req, res) {
   });
 });
 
-app.get("/:username", function(req, res)
-{
-  res.render("profile", {
-    avatar_id: "avatar.jpg",
-    avatar: 'img/avatar.jpg',
-
-    name: "Eugenio Pastoral",
-    username: "@"+req.session.username,
-    location: "Manila, Philippines",
-    bio: "21-year-old photographer based in the Philippines.",
-    status: 0,
-    follow: 1,
-
-    posts: [
-      {
-        post_name: 'post1.jpg'
-      },
-      {
-        post_name: 'landing.jpg'
-      },
-      {
-        post_name: 'landing3.jpg'
-      },
-      {
-        post_name: 'albert.jpg'
-      },
-      {
-        post_name: 'landing1.jpg'
-      },
-      {
-        post_name: 'landing4.jpg'
-      },
-      {
-        post_name: 'raf.jpg'
-      },
-      {
-        post_name: 'landing.jpg'
-      },
-    ]
-  });
-});
+app.get("/profile", profileController.getSelfProfile);
 
 
 module.exports = app;
