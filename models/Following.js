@@ -2,14 +2,12 @@ var mongoose = require('mongoose');
 
 var FollowingSchema = new mongoose.Schema({
     user:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Users'
+        type: String,
+        required: true
     },
     following:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: false,
-        ref: 'Users'
+        type: String,
+        required: false
     }
 });
 

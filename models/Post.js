@@ -2,9 +2,8 @@ var mongoose = require('mongoose');
 
 var PostSchema = new mongoose.Schema({
     user:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Users'
+        type: String,
+        required: true
     },
     title:{
         type: String,
@@ -15,10 +14,9 @@ var PostSchema = new mongoose.Schema({
         default: Date.now
     },
     likes:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: false,
-        ref: 'Likes'
-    },
+        type: String,
+        required: false
+        },
     postPic:
     {
         type: Buffer,

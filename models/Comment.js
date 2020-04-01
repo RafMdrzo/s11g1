@@ -2,10 +2,9 @@ var mongoose = require('mongoose');
 
 var CommentSchema = new mongoose.Schema({
     user:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Users'
-    },
+        type: String,
+        required: true
+        },
     post:{
         type: mongoose.Schema.Types.ObjectId,
         required: true,

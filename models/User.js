@@ -41,12 +41,6 @@ var UserSchema = new mongoose.Schema({
     }
 });
 
-/*
-UserSchema.virtual('avatarPath').get(function() {
-    if (this.avatar != null && this.imgType != null) {
-      return `data:${this.imgType};charset=utf-8;base64,${this.avatar.toString('base64')}`
-    }
-  })
-  */
+
 
 module.exports = mongoose.model('User', UserSchema);

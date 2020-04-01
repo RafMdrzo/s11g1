@@ -14,6 +14,7 @@ const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 
 app.use(session({
+  cookieName:'session',
   secret: 'secret',
   resave: true,
   saveUninitialized: true
@@ -157,7 +158,9 @@ response.end();
 
 //logout
 app.get('/logout', function(req, res) {
+  
   req.session.destroy((err) => {
+
     if(err) {
       return console.log(err);
     }
