@@ -3,7 +3,12 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
+const path = require('path');
+
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
 
 const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
@@ -121,14 +126,11 @@ app.get('/home', function(req, res)
   });
 });
 
-app.get('/tester', function(req, res)
-{
-  res.render('reg_avatar', {
-    layout: false,
-    avatar: 'img/blank.png'
-  });
-});
+app.get('/registerBioLoc', registerController.getBioLoc);
+app.get('/registerAvatar', registerController.getAvatar)
 
+app.post('/registerBioLoc', registerController.postBioLoc);
+app.post('/registerAvatar', registerController.postAvatar);
 
 //db implementation of login
 /*

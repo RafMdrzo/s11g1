@@ -26,8 +26,8 @@ const loginController = {
     var query = {username: req.body.username};
 
     // fields to be returned
-    var projection = 'username password';
-
+    var projection = 'username password avatar imgType';
+    
     db.findOne(User, query, projection, function(result) {
       console.log(req.body.username);
       console.log(result);
@@ -35,7 +35,8 @@ const loginController = {
         if(req.body.username == result.username) {
           if(req.body.password == result.password) {
             res.render("home", {
-              avatar: 'img/avatar.jpg',
+              avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+
               post: [
                 {
                   post_image: 'img/landing1.jpg',
