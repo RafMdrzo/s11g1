@@ -72,7 +72,7 @@ const postController = {
                             cursor.forEach(function(doc, err){
                                 assert.equal(null, err);
                                 var postMirror = {
-                                    post_author: doc.username,
+                                    post_author: doc.user,
                                     post_title: doc.title,
                                     post_description: doc.description,
                                     post_elapsed: '8 hours ago',
