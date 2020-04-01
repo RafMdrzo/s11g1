@@ -16,4 +16,4 @@ var LikeSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Likes', LikeSchema);
+module.exports = mongoose.model('Like', LikeSchema);
