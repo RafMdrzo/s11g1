@@ -7,8 +7,11 @@ const Post = require('../models/Post.js');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const postController = {
-    postPost: async function (req, res){
-        var filter = {username: req.query.username};
+    postAddPost: async function (req, res){
+        var query = {username: req.session.username};
+        //post contents
+        var desc = req.body.descriptor ;
+        var post_title = req.post_title;
         var picEncoded = req.body.upload;
 
         if(picEncoded != null)
@@ -19,12 +22,26 @@ const postController = {
                 var dat = new Buffer.from(pic.data, 'base64');
                 var dattype = pic.type;
 
-                db.updateOne(User, filter, 
+                db.insertOne(Post, 
                     {
-                        avatar: dat,
-                        imgType: dattype
+                        postpic: dat,
+                        imgType: dattype,
+                        title: post_title,
+                        description: desc,
+                        user: re.session.username
                     });
-                res.redirect('/');
+                res.redirect('/home');
+            } else {
+                db.insertOne(Post,
+                    {
+                        user: req.session.username,
+                        title: post_title,
+                        postpic: null,
+                        description: desc,
+                        imgType: ""
+
+                    } );
+                res.redirect('/home');
             }
             
         }
@@ -32,7 +49,7 @@ const postController = {
         {
             res.send(500 + "Error in handling data");
         }
-    },
+    } /*,
     postEdit: async function (req, res){
         var filter = {username: req.query.username};
 
@@ -48,7 +65,7 @@ const postController = {
         
         res.redirect('/registerAvatar?username=' + req.query.username);
         
-    }
+    } */
 };
 
 module.exports = registerController;

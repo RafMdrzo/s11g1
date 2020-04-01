@@ -17,15 +17,7 @@ var CommentSchema = new mongoose.Schema({
     text:{
         type: String,
         required: true
-    },
-    profpic: {
-        type: Buffer,
-        required: false
-    },
-    imgType: {
-        type: String,
-        require: false
     }
 });
 
-module.exports = mongoose.model('Comments', CommentSchema);
+module.exports = mongoose.model('Comment', CommentSchema);
