@@ -17,6 +17,14 @@ var CommentSchema = new mongoose.Schema({
     text:{
         type: String,
         required: true
+    },
+    profpic: {
+        type: Buffer,
+        required: false
+    },
+    imgType: {
+        type: String,
+        require: false
     }
 });
 

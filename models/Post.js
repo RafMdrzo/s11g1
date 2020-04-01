@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+
 var PostSchema = new mongoose.Schema({
     user:{
         type: String,
@@ -9,15 +12,15 @@ var PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    description:{
+        type: String,
+        required: true
+    },
     dateCreated:{
         type: Date,
         default: Date.now
     },
-    likes:{
-        type: String,
-        required: false
-        },
-    postPic:
+    postpic:
     {
         type: Buffer,
         required: false
@@ -29,4 +32,4 @@ var PostSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Posts', PostSchema);
+module.exports = mongoose.model('Post', PostSchema);
