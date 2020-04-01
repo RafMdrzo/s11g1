@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+
 var PostSchema = new mongoose.Schema({
     user:{
         type: String,
