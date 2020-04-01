@@ -53,7 +53,7 @@ const postController = {
         }
     },
     getHome: async function(req, res){
-        var projection = 'user title description dateCreated postpic imgType';
+        var projection = '_id user title description dateCreated postpic imgType';
       
         var imgTypeRes = '';
 
@@ -72,6 +72,7 @@ const postController = {
                             cursor.forEach(function(doc, err){
                                 assert.equal(null, err);
                                 var postMirror = {
+                                    post_id: doc._id,
                                     post_author: doc.user,
                                     post_title: doc.title,
                                     post_description: doc.description,
@@ -86,7 +87,11 @@ const postController = {
                                 res.render('home', {
                                     avatar: `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
                                     post: resulter,
-                                    comment: [{}]
+                                    comment: [{
+                                        profpic: null,
+                                        name: null,
+                                        text: ''
+                                    }]
                                     
                                     });
     

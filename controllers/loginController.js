@@ -1,7 +1,6 @@
 const db = require('../models/db.js');
 const assert = require('assert');
 const mongo = require('mongodb');
-
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
@@ -40,7 +39,7 @@ const loginController = {
             req.session.username = result.username;
             console.log(req.session.username);
             
-              var newprojection = 'user title description dateCreated postpic imgType';
+              var newprojection = '_id user title description dateCreated postpic imgType';
             
               var imgTypeRes = '';
       
@@ -58,14 +57,16 @@ const loginController = {
       
                                   cursor.forEach(function(doc, err){
                                       assert.equal(null, err);
+                                     
                                       var postMirror = {
+                                          post_id: 'a' + doc._id,
                                           post_author: doc.user,
                                           post_title: doc.title,
                                           post_description: doc.description,
                                           post_elapsed: '8 hours ago',
                                           post_image: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
                                       };
-      
+                                      console.log(postMirror.post_id);
                                       resulter.push(postMirror);
       
                                   }, function(){
@@ -73,7 +74,7 @@ const loginController = {
                                       res.render('home', {
                                           avatar: `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
                                           post: resulter,
-                                          comment: [{}]
+                                          comment:[]
                                           
                                           });
           
