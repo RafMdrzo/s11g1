@@ -29,11 +29,13 @@ const loginController = {
     var projection = 'username password avatar imgType';
     
     db.findOne(User, query, projection, function(result) {
-      console.log(req.body.username);
       console.log(result);
       if(result != null) {
         if(req.body.username == result.username) {
           if(req.body.password == result.password) {
+            req.session.username = result.username;
+            console.log(req.session.username);
+            
             res.render("home", {
               avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
 
