@@ -4,6 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
+const assert = require('assert');
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({limit: '50mb'}));
 
 const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
+const postController = require('../controllers/postController.js');
 
 app.use(session({
   cookieName:'session',
@@ -27,9 +29,9 @@ app.use(bodyParser.json());
 app.get("/",loginController.getLogIn);
 
 app.post('/home', loginController.postLogIn);
-
 app.post('/register', registerController.postRegister);
 
+/*
 app.get('/home', function(req, res)
 {
   res.render("home", {
@@ -127,34 +129,17 @@ app.get('/home', function(req, res)
   });
 });
 
+*/
+//registration
 app.get('/registerBioLoc', registerController.getBioLoc);
 app.get('/registerAvatar', registerController.getAvatar)
 
 app.post('/registerBioLoc', registerController.postBioLoc);
 app.post('/registerAvatar', registerController.postAvatar);
 
-//db implementation of login
-/*
-app.post('/auth', function(request, response) {
-var username = request.body.username;
-var password = request.body.password;
-if (username && password) {
-connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-if (results.length > 0) {
-request.session.loggedin = true;
-request.session.username = username;
-response.redirect('/home');
-} else {
-response.send('Incorrect Username and/or Password!');
-}
-response.end();
-});
-} else {
-response.send('Please enter Username and Password!');
-response.end();
-}
-});
-*/
+//posting
+app.post('/postprocessing', postController.postAddPost);
+app.get('/home', postController.getHome);
 
 //logout
 app.get('/logout', function(req, res) {

@@ -1,6 +1,7 @@
 
 // import module `mongoose`
 const mongoose = require('mongoose');
+const mongodb = require('mongodb');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('./User.js');
