@@ -6,7 +6,7 @@ const User = require('../models/User.js');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const registerController = {
-    postRegister: function(req, res){
+    postRegister: async function(req, res){
         var reqName = req.body.fullName_;
         var reqUsername = req.body.userName_;
         var reqEmail = req.body.email_;

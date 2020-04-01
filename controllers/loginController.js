@@ -1,8 +1,12 @@
-// import module `database` from `../models/db.js`
 const db = require('../models/db.js');
+const assert = require('assert');
+const mongo = require('mongodb');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
+const Post = require('../models/Post.js');
+const url = 'mongodb://localhost:27017/folioDB';
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 // defines an object which contains functions executed as callback
 // when a client requests for `signup` paths in the server
@@ -10,13 +14,13 @@ const loginController = {
 
   // executed when the client sends an HTTP GET request `/login`
   // as defined in `../routes/routes.js`
-  getLogIn: function (req, res) {
+  getLogIn: async function (req, res) {
     res.render('login', {layout: false});
   },
 
   // executed when the client sends an HTTP POST request `/signup`
   // as defined in `../routes/routes.js`
-  postLogIn: function (req, res) {
+  postLogIn: async function (req, res) {
 
     // when submitting forms using HTTP POST method
     // the values in the input fields are stored in the req.body object
@@ -36,100 +40,62 @@ const loginController = {
             req.session.username = result.username;
             console.log(req.session.username);
             
-            res.render("home", {
-              avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
-
-              post: [
-                {
-                  post_image: 'img/landing1.jpg',
-                  post_title: 'Manila Bay',
-                  post_author: 'Eugenio Pastoral',
-                  post_elapsed: '8 hours ago',
-                  post_description: 'I teased this shoot over on my Instagram a few weeks ago. Taken two days before Christmas last year. I first attempted to take a shot of this way back in November 2018 but was unsuccessful to my eyes. Fortunately, I spent that night near the location with all my gear.',
-                  post_id: 'com1',
-                  comment: [
-                    {
-                      profpic: 'img/le.jpg',
-                      name: 'Leanne Loyola',
-                      text: 'Woah! Amazing 🌝'
-                    },
-
-                    {
-                      profpic: 'img/thea.jpg',
-                      name: 'Thea Go',
-                      text: 'corpse'
-                    },
-
-                    {
-                      profpic: 'img/boss.jpg',
-                      name: 'Alexis Dela Cruz',
-                      text: 'Awitt'
-                    },
-                    {
-                      profpic: 'img/albert.jpg',
-                      name: 'Albert Bofill',
-                      text: 'Nice one'
-                    },
-
-                    {
-                      profpic: 'img/mica.jpg',
-                      name: 'Michaela Dizon',
-                      text: 'haha'
-                    },
-
-                    {
-                      profpic: 'img/raf.jpg',
-                      name: 'Rafael Maderazo',
-                      text: 'Nagtataka padin ako kung bakit ka single'
-                    }
-                  ]
-                },
-                {
-                  post_image: 'img/landing4.jpg',
-                  post_title: 'Lights',
-                  post_author: 'Eugenio Pastoral',
-                  post_elapsed: '12 hours ago',
-                  post_description: 'It was a day before Christmas Eve. It has been raining continuously for a few days. Overlooking the streets, I was amused by how passing cars light up the moist window.',
-                  post_id: 'com2',
-                  comment: [
-                    {
-                      profpic: 'img/le.jpg',
-                      name: 'Leanne Loyola',
-                      text: 'Gandaaa'
-                    },
-
-                    {
-                      profpic: 'img/thea.jpg',
-                      name: 'Thea Go',
-                      text: 'Mama mo padin'
-                    },
-
-                    {
-                      profpic: 'img/boss.jpg',
-                      name: 'Alexis Dela Cruz',
-                      text: 'XDDD'
-                    },
-                    {
-                      profpic: 'img/albert.jpg',
-                      name: 'Albert Bofill',
-                      text: 'Grabe'
-                    },
-
-                    {
-                      profpic: 'img/mica.jpg',
-                      name: 'Michaela Dizon',
-                      text: 'lmao'
-                    },
-
-                    {
-                      profpic: 'img/raf.jpg',
-                      name: 'Rafael Maderazo',
-                      text: 'Single po siya'
-                    }
-                  ]
-                }
-              ]
-            });
+              var newprojection = 'user title description dateCreated postpic imgType';
+            
+              var imgTypeRes = '';
+      
+              db.findMany(Post, {}, newprojection,function(result){
+                  if(result != null){
+                      var newQuery = {username: req.session.username};
+                      var newProjection = 'avatar imgType';
+      
+                      db.findOne(User, newQuery, newProjection, (newRes)=>{
+                          if(newRes != null){
+                              var resulter = [];
+                              mongo.connect(url, function(err, client){
+                                  assert.equal(null, err);
+                                  var cursor = client.collection('posts').find();
+      
+                                  cursor.forEach(function(doc, err){
+                                      assert.equal(null, err);
+                                      var postMirror = {
+                                          post_author: doc.user,
+                                          post_title: doc.title,
+                                          post_description: doc.description,
+                                          post_elapsed: '8 hours ago',
+                                          post_image: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
+                                      };
+      
+                                      resulter.push(postMirror);
+      
+                                  }, function(){
+                                      client.close();
+                                      res.render('home', {
+                                          avatar: `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
+                                          post: resulter,
+                                          comment: [{}]
+                                          
+                                          });
+          
+                                  });
+                              });
+      
+                              
+                          }
+                       });
+      
+      
+                      
+                  } else {
+                      res.send(500);
+                  }
+              });
+      
+                  
+      
+              console.log("i'm outside bitch");
+          
+           
           }
         }
       }
