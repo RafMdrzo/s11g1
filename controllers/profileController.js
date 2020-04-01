@@ -22,7 +22,7 @@ const profileController = {
                     var resulter = [];
                     mongo.connect(url, function(err, client){
                         assert.equal(null, err);
-                        var cursor = client.collection('posts').find();
+                        var cursor = client.collection('posts').find({user: result.username});
 
                         cursor.forEach(function(doc, err){
                             assert.equal(null, err);
