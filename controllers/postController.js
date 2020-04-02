@@ -150,7 +150,7 @@ const postController = {
                       if(newRes != null){
 
                         res.render('home',{
-                          avatar:  `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
+                          myavatar:  `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
                           post: postResulter
                         })
                       }

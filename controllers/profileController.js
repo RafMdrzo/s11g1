@@ -77,16 +77,30 @@ const profileController = {
 
                         }, function(){
                             client.close();
-                            res.render('profile', {
-                                avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
-                                bio: result.bio,
-                                location: result.location,
-                                username: result.username,
-                                name: result.fullName,
-                                posts: resulter,
-                                status: true,
-                                follow: true,
-                                });
+                            var myUser = req.session.username;
+                            var projectNew = 'imgType avatar';
+
+                            db.findOne(User, {username: myUser}, projectNew, (checkRes)=>{
+                                if(checkRes != null)
+                                {
+                                    res.render('profile', {
+                                        myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
+    
+                                        avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+                                        bio: result.bio,
+                                        location: result.location,
+                                        username: result.username,
+                                        name: result.fullName,
+                                        posts: resulter,
+                                        status: true,
+                                        follow: true,
+                                        });
+                                } else {
+                                    res.send(500 + ' Error loading');
+                                }
+                                
+                            })
+                            
 
                         });
                     });
