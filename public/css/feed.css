@@ -199,8 +199,12 @@ nav{
 }
 
 .photo-description {
-  margin-right: 5%;
   font-size: 15px;
+ 
+}
+.desc-js{
+  white-space: pre;
+  float: left;
 }
 
 .navbar {
