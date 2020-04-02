@@ -220,6 +220,7 @@
   text-align: center;
   border-radius: 10px;
   resize: vertical;
+  white-space: pre-wrap;
 }
 
 .addposttitle{
@@ -271,4 +272,8 @@
   position: relative;
   height: 50vh;
   min-width: 55vw;
+}
+
+.desc-js{
+  white-space: pre;
 }
