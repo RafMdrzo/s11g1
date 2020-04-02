@@ -1,6 +1,7 @@
 const db = require('../models/db.js');
 const assert = require('assert');
 const mongo = require('mongodb');
+const R = require('ramda');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
@@ -56,60 +57,147 @@ const postController = {
     },
     getHome: async function(req, res){
         var projection = '_id user title description dateCreated postpic imgType';
-      
         var imgTypeRes = '';
+        
+        var postResulter = [];
+        var commentResulter = [];
+        var userResulter = [];
+        var finalResulter = [];
+        var customResulter = [];
+
+        var commentProjection = '_id post text user dateCreated';
+        var userProjection = 'username avatar imgType';
 
         db.findMany(Post, {}, projection,function(result){
             if(result != null){
-                var newQuery = {username: req.session.username};
-                var newProjection = 'avatar imgType';
+                //process post result for views
+               
 
-                db.findOne(User, newQuery, newProjection, (newRes)=>{
-                    if(newRes != null){
-                        var resulter = [];
-                        mongo.connect(url, function(err, client){
-                            assert.equal(null, err);
-                            var cursor = client.collection('posts').find();
-
-                            cursor.forEach(function(doc, err){
-                                assert.equal(null, err);
-                                var postMirror = {
-                                    post_id: 'a' + doc._id,
-                                    post_author: doc.user,
-                                    post_title: doc.title,
-                                    post_description: doc.description,
-                                    post_elapsed: '8 hours ago',
-                                    post_image: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
-                                };
-
-                                resulter.push(postMirror);
-
-                            }, 
-                            function(){
-
-
-                            },
-                            function(){
-                                client.close();
-                                res.render('home', {
-                                    avatar: `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
-                                    post: resulter,
-                                    comment: [{
-                                        profpic: null,
-                                        name: null,
-                                        text: ''
-                                    }]
-                                    
-                                    });
-    
-                            });
-                        });
-
+                for(i = 0; i < result.length; i++)
+                {
+                    var postMirror = {
+                        post_image: `data:${result[i].imgType};charset=utf-8;base64,${result[i].postpic.toString('base64')}`,
+                        post_title: result[i].title,
+                        post_description: result[i].description,
+                        post_author: result[i].user,
+                        post_elapsed: '8 hours ago',
+                        post_id: 'a' + result[i]._id
                         
+                    };
+
+                   
+                    postResulter.push(postMirror);
+
+                }
+                //process comment 
+                db.findMany(Comment, {}, commentProjection, (commRes)=>{
+                    if(commRes != null){
+                        for(i = 0; i < commRes.length; i++)
+                        {
+                            var commentMirror = {
+                                username: commRes[i].user,
+                                post_id: commRes[i].post,
+                                dateCreated: commRes[i].dateCreated,
+                                text: commRes[i].text
+                            }
+
+                            commentResulter[i] = commentMirror;
+                        }
+                         //process user result
+                        db.findMany(User, {}, userProjection, (profRes)=>{
+                            if(profRes != null){
+                                for(i = 0; i < profRes.length; i++)
+                                {
+                                    var userMirror = {
+                                        username: profRes[i].username,
+                                        virtualPath:  `data:${profRes[i].imgType};charset=utf-8;base64,${profRes[i].avatar.toString('base64')}`
+                                    }
+
+                                    userResulter.push(userMirror);
+
+                                }
+                                for(i = 0; i < postResulter.length; i++)
+                                {
+                                    for(j = 0; j < commentResulter.length; j++)
+                                    {
+                                        
+                                        if(commentResulter[j].post_id == postResulter[i].post_id)
+                                        {
+                                            for(n = 0; n < userResulter.length; n++)
+                                            {
+                                                if(userResulter[n].username == commentResulter[j].username)
+                                                {
+                                                    var finalMirror = {
+                                                        virtualPath: userResulter[n].virtualPath,
+                                                        text: commentResulter[j].text,
+                                                        customID: commentResulter[j].post_id,
+                                                        name: userResulter[n].username,
+                                                        post_image: postResulter[i].post_image
+                                                    }
+    
+                                                    finalResulter.push(finalMirror);
+                                                }
+                                                else {
+                                                    var addPoster = {
+                                                        post_image: postResulter[i].post_image,
+                                                        customID: postResulter[i].post_id
+                                                    }
+                                                    finalResulter.push(addPoster);
+                                                }
+                                            }
+                                        } else {
+                                            var addPoster = {
+                                                post_image: postResulter[i].post_image,
+                                                customID: postResulter[i].post_id
+                                            }
+                                            finalResulter.push(addPoster);
+                                        }
+                                    }
+                                }
+
+
+                                //logged-in User
+                                var newQuery = {username: req.session.username};
+                                var newProjection = 'avatar imgType';
+                                db.findOne(User, newQuery, newProjection, async (newRes)=>{
+                                    if(newRes != null){
+                                      
+                                        res.render('home',{
+                                            avatar:  `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
+                                            post: postResulter,
+                                            comment: finalResulter
+                                        })
+                                    }
+                                });
+
+
+
+
+
+
+
+
+
+
+                            } else {
+                                res.send(500 + 'Error in handling data');
+                            }
+                        });
+                        //process and combine gathered queries from user and comment to show comments in views
+                        
+
+
+
+
+                    } else {
+                        res.send(500 + 'Error in handling data');
                     }
-                 });
+                });
+               
 
+               
 
+                
                 
             } else {
                 res.send(500);

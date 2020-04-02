@@ -1,4 +1,4 @@
-{{#each post}}
+{{#each post as |post|}}
 <div id="post-container">
   <div id="post">
     <div id="photo-container">
@@ -51,7 +51,7 @@
           </div>
 
           <div class="comments">
-            {{#each comment}}
+            {{#each ../comment as |comment|}}
             <div class="comment-cont">
               <img src="{{this.virtualPath}}">
               <div class="row-name">

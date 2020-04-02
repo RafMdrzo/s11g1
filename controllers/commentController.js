@@ -15,11 +15,10 @@ const commentController = {
         var modifiedPost_id = req.body.hidden_id;
         var comment = req.body.comment;
         var userQuery = req.session.username;
-        var originalID = modifiedPost_id.substr(1);
 
         db.insertOne(Comment, {
             user: userQuery,
-            post: originalID,
+            post: modifiedPost_id,
             text: comment
         });
 
