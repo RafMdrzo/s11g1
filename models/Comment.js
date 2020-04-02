@@ -6,13 +6,12 @@ var CommentSchema = new mongoose.Schema({
         required: true
         },
     post:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Posts'
+        type: String,
+        required: true
     },
     dateCreated:{
         type: Date,
-        defualt: Date.now
+        default: Date.now
     },
     text:{
         type: String,

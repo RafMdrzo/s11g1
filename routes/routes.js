@@ -15,6 +15,7 @@ const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 const postController = require('../controllers/postController.js');
 const profileController = require('../controllers/profileController.js');
+const commentController = require('../controllers/commentController.js');
 
 app.use(session({
   cookieName:'session',
@@ -42,6 +43,11 @@ app.post('/registerAvatar', registerController.postAvatar);
 //posting
 app.post('/postprocessing', postController.postAddPost);
 app.get('/home', postController.getHome);
+
+//commenting
+
+app.post('/addcomment', commentController.postAddComment);
+
 
 //logout
 app.get('/logout', function(req, res) {

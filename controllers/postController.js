@@ -5,6 +5,8 @@ const mongo = require('mongodb');
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
+const Comment = require('../models/Comment.js');
+
 const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
@@ -82,7 +84,12 @@ const postController = {
 
                                 resulter.push(postMirror);
 
-                            }, function(){
+                            }, 
+                            function(){
+
+
+                            },
+                            function(){
                                 client.close();
                                 res.render('home', {
                                     avatar: `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,

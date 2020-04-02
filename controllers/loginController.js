@@ -39,64 +39,17 @@ const loginController = {
             req.session.username = result.username;
             console.log(req.session.username);
             
-              var newprojection = '_id user title description dateCreated postpic imgType';
-            
-              var imgTypeRes = '';
-      
-              db.findMany(Post, {}, newprojection,function(result){
-                  if(result != null){
-                      var newQuery = {username: req.session.username};
-                      var newProjection = 'avatar imgType';
-      
-                      db.findOne(User, newQuery, newProjection, (newRes)=>{
-                          if(newRes != null){
-                              var resulter = [];
-                              mongo.connect(url, function(err, client){
-                                  assert.equal(null, err);
-                                  var cursor = client.collection('posts').find();
-      
-                                  cursor.forEach(function(doc, err){
-                                      assert.equal(null, err);
-                                     
-                                      var postMirror = {
-                                          post_id: 'a' + doc._id,
-                                          post_author: doc.user,
-                                          post_title: doc.title,
-                                          post_description: doc.description,
-                                          post_elapsed: '8 hours ago',
-                                          post_image: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
-                                      };
-                                      console.log(postMirror.post_id);
-                                      resulter.push(postMirror);
-      
-                                  }, function(){
-                                      client.close();
-                                      res.render('home', {
-                                          avatar: `data:${newRes.imgType};charset=utf-8;base64,${newRes.avatar.toString('base64')}`,
-                                          post: resulter,
-                                          comment:[]
-                                          
-                                          });
-          
-                                  });
-                              });
-      
-                              
-                          }
-                       });
-      
-      
+                  res.redirect("/home");
                       
                   } else {
                       res.send(500);
                   }
-              });
+              
           
            
           }
         }
-      }
-    });
+      });
   }
 
 }
