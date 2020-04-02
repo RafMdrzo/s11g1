@@ -48,7 +48,52 @@ const profileController = {
                 } else {
                     res.send(500 + " Can't find the user");
                 }
-                
+
+            });
+    },
+
+    getUserProfile: async (req, res)=>{
+        var currentUser = req.params.username;
+
+        var query = {username: currentUser};
+
+        var projection = 'avatar username fullName bio location imgType';
+
+        db.findOne(User, query, projection,
+            (result)=>{
+                if(result != null){
+                    var resulter = [];
+                    mongo.connect(url, function(err, client){
+                        assert.equal(null, err);
+                        var cursor = client.collection('posts').find({user: result.username});
+
+                        cursor.forEach(function(doc, err){
+                            assert.equal(null, err);
+                            var postMirror = {
+                                path: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
+                            };
+
+                            resulter.push(postMirror);
+
+                        }, function(){
+                            client.close();
+                            res.render('profile', {
+                                avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+                                bio: result.bio,
+                                location: result.location,
+                                username: result.username,
+                                name: result.fullName,
+                                posts: resulter,
+                                status: true,
+                                follow: true,
+                                });
+
+                        });
+                    });
+                } else {
+                    res.send(500 + " Can't find the user");
+                }
+
             });
     }
 }

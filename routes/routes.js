@@ -51,7 +51,7 @@ app.post('/addcomment', commentController.postAddComment);
 
 //logout
 app.get('/logout', function(req, res) {
-  
+
   req.session.destroy((err) => {
 
     if(err) {
@@ -62,6 +62,7 @@ app.get('/logout', function(req, res) {
 });
 
 app.get("/profile", profileController.getSelfProfile);
+app.get("/:username", profileController.getUserProfile);
 
 
 module.exports = app;
