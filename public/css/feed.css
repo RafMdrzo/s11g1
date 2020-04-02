@@ -206,7 +206,12 @@ nav{
   white-space: pre;
   float: left;
 }
-
+.title-js{
+  word-wrap: break-word;
+  float: left;
+  font-size: 7vh;
+  line-height: 5.5vh;
+}
 .navbar {
   position: fixed;
   z-index: 9999;

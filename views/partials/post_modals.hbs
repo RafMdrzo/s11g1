@@ -14,7 +14,7 @@
           <input name='upload' class='filepond' type='file'> 
 
           <div class="modal-post-fields">
-            <input name = 'post_title'class="addposttitle form-control mr-sm-2" type="text" placeholder="title">
+            <input name = 'post_title'class="addposttitle form-control mr-sm-2" type="text" placeholder="title" maxlength = "35">
           </div>
             <textarea name = 'descriptor' form ='addPostForm' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="description"></textarea>
           <div class="addpost-button">
@@ -32,24 +32,25 @@
 
       <div class="modal-content row">
         <!-- Modal body -->
-        <div class="modal-post-header">
-          <div class="pic-row">
-            <img class="fill-row" src="img/post1.jpg">
-          </div>
-        </div>
-
         <div class="modal-post-container">
           <div class="modal-header">
             Edit Post
           </div>
+          <form id='addPostForm'method='POST' action='/editprocessing'>
+
+          
+          <input name='upload' class='filepond' type='file'> 
+
 
           <div class="modal-post-fields">
-            <input class="addposttitle form-control mr-sm-2" type="text" aria-label="Search">
+            <input class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
             <input class="addpostdesc form-control mr-sm-2" type="text" aria-label="Search">
           </div>
           <div class="addpost-button">
             <button type="button" class="editpostbtn btn btn-secondary">Edit Post</button>
           </div>
+
+          </form>
         </div>
       </div>
     </div>
