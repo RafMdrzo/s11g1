@@ -188,6 +188,7 @@ nav{
   font-size: 15px;
   font-weight: normal;
   color: #2e2e2e;
+  float: left;
 }
 
 .photo-header {
@@ -196,6 +197,7 @@ nav{
   font-weight: bold;
   line-height: 20px;
   color: #2e2e2e;
+  float: left;
 }
 
 .photo-description {

@@ -1,3 +1,10 @@
+function diff_hours(dt2, dt1)
+{
+  var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+  diff /= (60 * 60);
+  return Math.abs(Math.round(diff));
+}
+
 const db = require('../models/db.js');
 const assert = require('assert');
 const mongo = require('mongodb');
@@ -79,7 +86,7 @@ const postController = {
                 post_title: result[i].title,
                 post_description: result[i].description,
                 post_author: result[i].user,
-                post_elapsed: '8 hours ago',
+                post_elapsed: diff_hours(new Date(Date.now()), new Date(result[i].dateCreated)) + ' hours ago',
                 post_id: 'a' + result[i]._id,
                 comment: []
               };
@@ -133,7 +140,6 @@ const postController = {
                           }
                         }
                       }
-                      console.log(postResulter[i].comment);
                     }
 
 
