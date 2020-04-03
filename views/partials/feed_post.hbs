@@ -104,12 +104,15 @@
             <img class="fill-row" src="{{this.post_image}}">
           </div>
 
-    <form method='POST' action='/editprocessing'>
+    <form id = 'editPostForm'method='POST' action='/editprocessing'>
           <div class="modal-post-fields">
             <input name='hidden_editID' type='hidden' value='{{this.post_id}}'>
-            <input name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
-            <input name="edit_desc" value="{{this.post_description}}" class="addpostdesc form-control mr-sm-2" type="text" aria-label="Search">
+            <input placeholder="Title" name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
           </div>
+            <textarea name='edit_desc' form ='editPostForm' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="Description">
+            {{this.post_description}}
+            </textarea>
+
           <div class="addpost-button">
             <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>
           </div>
