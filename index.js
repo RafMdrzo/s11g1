@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
 const typed = require('typed.js');
 
-const port = process.env.PORT || 9090;
+const port = process.env.PORT || 3000;
 const app = express();
 const path = require('path');
 const profileRouter = require(__dirname, '/routes/profile');

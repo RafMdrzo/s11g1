@@ -46,11 +46,17 @@ app.post('/registerAvatar', registerController.postAvatar);
 app.post('/postprocessing', postController.postAddPost);
 app.get('/home', postController.getHome);
 
+//edit post
+app.post('/editprocessing', postController.postEditPost);
+//delete post
+app.post('/deletepost', postController.postDeletePost);
+
 //commenting
 app.post('/addcomment', commentController.postAddComment);
 
 //liking
 app.post('/likepost', likeController.postLike);
+app.post('/unlikepost', likeController.deleteLike);
 
 //following
 app.post('/following', followController.follow);

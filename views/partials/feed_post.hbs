@@ -20,7 +20,7 @@
         </div>
         <hr>
         <div class="photo-description ">
-         <p class='desc-js'>&ensp;{{this.post_description}}</p>
+          <p class='desc-js'>&ensp;{{this.post_description}}</p>
         </div>
         <div class="photo-actions">
           {{#if liked}}
@@ -38,7 +38,7 @@
           <img class="socact-action" src="img/share.png">
           {{#if status}}
           <a href='#' class='edit-post socact-container' data-toggle='modal' data-target='#{{this.edit_id}}'>
-          <img class='socact-action' src='img/options.png'>
+            <img class='socact-action' src='img/options.png'>
           </a>
           {{/if}}
         </div>
@@ -99,41 +99,38 @@
 
 
 <!--EDIT POST MODAL-->
-  <div class="modal fade" id="{{this.edit_id}}" role="dialog">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+<div class="modal fade" id="{{this.edit_id}}" role="dialog">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 
-      <div class="modal-content row">
-        <!-- Modal body -->
-        <div class="modal-post-container">
-          <div class="modal-header">
-            Edit Post
-          </div>
-          <div class="pic-row">
-            <img class="fill-row" src="{{this.post_image}}">
-          </div>
+    <div class="modal-content row">
+      <!-- Modal body -->
+      <div class="modal-post-container">
+        <div class="modal-header">
+          Edit Post
+        </div>
+        <div class="pic-row">
+          <img class="fill-row" src="{{this.post_image}}">
+        </div>
 
-    <form id = 'editPostForm'method='POST' action='/editprocessing'>
+        <form id = 'editPostForm'method='POST' action='/editprocessing'>
           <div class="modal-post-fields">
             <input name='hidden_editID' type='hidden' value='{{this.post_id}}'>
             <input placeholder="Title" name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
-          </div>
-            <textarea name='edit_desc' form ='editPostForm' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="Description">
-            {{this.post_description}}
+            <textarea name='edit_desc' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="Description">
+              {{this.post_description}}
             </textarea>
-
-          <div class="addpost-button">
-            <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>
           </div>
+
+          
+          <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>
         </form>
-      <form method='POST' action='/deletepost'>
-        <input name='hidden_deleteID' type='hidden' value='{{this.post_id}}'>
-          <div class="addpost-button">
-            <button type="submit" class="delpostbtn delete-post btn btn-secondary">Delete Post</button>
-          </div>
-      </form>
+        <form method='POST' action='/deletepost'>
+          <input name='hidden_deleteID' type='hidden' value='{{this.post_id}}'>
+          <button type="submit" class="delpostbtn  btn btn-secondary">Delete Post</button>
+        </form>
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 {{/each}}
