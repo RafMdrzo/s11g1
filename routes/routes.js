@@ -65,6 +65,8 @@ app.post('/following', followController.follow);
 app.post('/editprofile', profileController.postEditProfile);
 
 app.get('/search', searchController.getSearch);
+//delete user
+app.post('/deleteuser', registerController.deleteUser);
 
 //logout
 app.get('/logout', function(req, res) {

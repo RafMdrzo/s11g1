@@ -2,6 +2,11 @@ const db = require('../models/db.js');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
+const Post = require('../models/Post.js');
+const Likes = require('../models/Likes.js');
+const Follower = require('../models/Follower.js');
+const Following = require('../models/Following.js');
+const Comment = require('../models/Comment.js');
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
@@ -76,6 +81,21 @@ const registerController = {
     },
     getAvatar: function(req, res){
         res.render('reg_avatar',{layout: false});
+    },
+    deleteUser: async (req, res)=>{
+        var currentUser = req.session.username;
+        var projection = 'username';
+        var query = {username: currentUser};
+
+       
+        db.deleteMany(Post, {user: currentUser});
+        db.deleteMany(Comment, {user: currentUser});
+        db.deleteMany(Likes, {user: currentUser});
+        db.deleteMany(Following, {$or:[{user: currentUser}, {following:currentUser}]});
+        db.deleteMany(Follower, {$or:[{user: currentUser}, {follower:currentUser}]});
+        db.deleteOne(User, {username: currentUser});
+
+        res.redirect('/');
     }
 };
 
