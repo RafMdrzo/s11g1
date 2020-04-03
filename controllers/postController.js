@@ -73,6 +73,7 @@ const postController = {
 
         var commentProjection = '_id post text user dateCreated';
         var userProjection = 'username avatar imgType';
+        var myUser = req.session.username;
 
         db.findMany(Post, {}, projection,function(result){
           if(result != null){
@@ -88,6 +89,7 @@ const postController = {
                 post_author: result[i].user,
                 post_elapsed: diff_hours(new Date(Date.now()), new Date(result[i].dateCreated)) + ' hours ago',
                 post_id: 'a' + result[i]._id,
+                status: result[i].user == myUser ? true : false,
                 comment: []
               };
               postResulter.push(postMirror);
