@@ -51,7 +51,6 @@ const profileController = {
                 } else {
                     res.send(500 + " Can't find the user");
                 }
-
             });
     },
 
@@ -128,7 +127,6 @@ const profileController = {
                 } else {
                     res.send(500 + " Can't find the user");
                 }
-
             });
     },
 
@@ -165,8 +163,6 @@ const profileController = {
                     username: newusername,
                     location: newloc
                 });
-           
-
             } 
                 
         } else {
@@ -176,11 +172,43 @@ const profileController = {
                 location: newloc
             });
         }
+        
+        res.redirect(req.get('referer'));
+    },
 
+    postEditEmail: (req, res)=> {
+        var newemail = req.body.newemail;
+        var currentUser = req.session.username;
+        var filter = {username: currentUser};
+        console.log(newemail);
+
+        if(newemail != "")
+        {
+            db.updateOne(User, filter, {
+                email: newemail
+            });
+        }
 
         res.redirect(req.get('referer'));
+    },
 
-    }
+    postChangePassword: (req,res)=> {
+        var newpass = req.body.newpass;
+        var confnewpass = req.body.confpass;
+        var currentUser = req.session.username;
+        var filter = {username: currentUser};
+        console.log(newpass);
+        console.log(confnewpass);
+
+        if((newpass != "") && (confnewpass != "") && (newpass == confnewpass))
+        {
+            db.updateOne(User, filter, {
+                password: confnewpass
+            });
+        }
+
+        res.redirect(req.get('referer'));
+    },
 }
 
 module.exports = profileController;

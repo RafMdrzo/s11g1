@@ -35,12 +35,12 @@
               <form method='POST' action='/changepassword'>
                 <div class="form-group">
                   <label for="pass">Password</label>
-                  <input type="password" class="form-control" id="newpass" placeholder="Password">
+                  <input name="newpass" type="password" class="form-control" id="newpass" placeholder="Password">
                 </div>
 
                 <div class="form-group">
                   <label for="pass">Confirm Password</label>
-                  <input type="password" class="form-control" id="conf_newpass" placeholder="Confirm Password">
+                  <input name="confpass" type="password" class="form-control" id="conf_newpass" placeholder="Confirm Password">
                 </div>
                 <button type='submit' class="btn btn-secondary confidential btn-lg"
                  role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Password</button>
@@ -49,7 +49,7 @@
           </div>
           <div class="col">
             <footer>
-              <form method='POST' action='/delete'user>
+              <form method='POST' action='/deleteuser'>
                 <button class="btn btn-danger confidential btn-lg btn-block">
                 Delete Account
               </button>

@@ -62,7 +62,14 @@ app.post('/unlikepost', likeController.deleteLike);
 //following
 app.post('/following', followController.follow);
 
+//editprofile
 app.post('/editprofile', profileController.postEditProfile);
+
+//editemail
+app.post('/editemail', profileController.postEditEmail);
+
+//changepassword
+app.post('/changepassword', profileController.postChangePassword);
 
 app.get('/search', searchController.getSearch);
 
