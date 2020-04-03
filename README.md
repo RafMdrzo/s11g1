@@ -40,7 +40,7 @@ Folio is a social media platform designed for creatives. The website focuses on 
 
 1. Install [Git](https://git-scm.com/downloads) if you haven't yet.
 2. After installation, open Terminal or Command Prompt clone this repository by entering the following:
-`git clone https://github.com/orgs/ccapdev1920T2/teams/s11-g1`
+`git clone https://github.com/ccapdev1920T2/s11g1`
 3. Set your commit email address in Git by executing the command:
 `git config --global user.email "your@email.com"`
 4. Check if the email address is updated by running this command:
