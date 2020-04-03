@@ -37,7 +37,6 @@ const profileController = {
                         }, function(){
                             client.close();
                             res.render('profile', {
-                                layout: false,
                                 myavatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                 avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                 bio: result.bio,
@@ -45,8 +44,7 @@ const profileController = {
                                 username: result.username,
                                 name: result.fullName,
                                 posts: resulter,
-                                custom_nav: '<button type="button" class="dropdown-item btn-light" id="getdat" data-toggle="modal" data-target="#profset">Profile Settings</button>'
-                                });
+                                custom_nav: '<button type="button" class="dropdown-item btn-light" id="getdat" data-toggle="modal" data-target="#profset">Profile Settings</button>'                                });
 
                         });
                     });

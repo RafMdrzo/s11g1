@@ -287,8 +287,16 @@
   flex: 1;
 }
 
-.filepond--root {
+.postfilepond {
   position: relative;
   height: 50vh;
   min-width: 55vw;
+}
+
+.editfilepond
+{
+    position: relative;
+    bottom: 2vh;
+    height: 45vh;
+    min-width: 15vw;
 }

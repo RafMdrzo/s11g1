@@ -46,7 +46,6 @@ app.post('/registerAvatar', registerController.postAvatar);
 //posting
 app.post('/postprocessing', postController.postAddPost);
 app.get('/home', postController.getHome);
-
 //edit post
 app.post('/editprocessing', postController.postEditPost);
 //delete post
@@ -61,6 +60,8 @@ app.post('/unlikepost', likeController.deleteLike);
 
 //following
 app.post('/following', followController.follow);
+
+app.post('editprofile', profileController.postEditProfile);
 
 //logout
 app.get('/logout', function(req, res) {
