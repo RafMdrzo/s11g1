@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const assert = require('assert');
+const filepond = require('filepond');
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
