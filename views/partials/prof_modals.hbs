@@ -12,25 +12,27 @@
 
         <div class="modal-body" >
           <div class="col">
-            <button class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
+            <button title="You can only perform these actions one at a time" class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
             href="#emailform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Email</button>
 
             <div class="collapse multi-collapse" id="emailform">
-              <form>
+              <form  method='POST' action='/editemail'>
                 <div class="form-group">
                   <label for="mailing">Email address</label>
-                  <input type="email" class="form-control" id="newmail" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input name='newemail' type="email" class="form-control" id="newmail" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
+                  <button type='submit' class="btn btn-secondary confidential btn-lg"
+                 role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Email</button>
               </form>
             </div>
           </div>
           <div class="col">
-            <button class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
+            <button title="You can only perform these actions one at a time" class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
             href="#pwform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Password</button>
 
 
             <div class="collapse multi-collapse" id="pwform">
-              <form>
+              <form method='POST' action='/changepassword'>
                 <div class="form-group">
                   <label for="pass">Password</label>
                   <input type="password" class="form-control" id="newpass" placeholder="Password">
@@ -40,14 +42,19 @@
                   <label for="pass">Confirm Password</label>
                   <input type="password" class="form-control" id="conf_newpass" placeholder="Confirm Password">
                 </div>
+                <button type='submit' class="btn btn-secondary confidential btn-lg"
+                 role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Password</button>
               </form>
             </div>
           </div>
           <div class="col">
             <footer>
-              <button class="btn btn-danger confidential btn-lg btn-block">
+              <form method='POST' action='/delete'user>
+                <button class="btn btn-danger confidential btn-lg btn-block">
                 Delete Account
               </button>
+              </form>
+              
             </footer>
           </div>
 
@@ -56,7 +63,6 @@
         <!-- ACC SETTINGS FOOTER-->
         <div class="modal-footer edit-done">
           <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-secondary" id="throw-dat" data-dismiss="modal">Save changes</button>
         </div>
       </div>
     </div>
