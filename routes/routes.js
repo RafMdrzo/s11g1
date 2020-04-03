@@ -15,6 +15,7 @@ const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 const postController = require('../controllers/postController.js');
 const profileController = require('../controllers/profileController.js');
+const searchController = require('../controllers/searchController.js');
 const commentController = require('../controllers/commentController.js');
 
 app.use(session({
@@ -50,6 +51,9 @@ app.get('/home', postController.getHome);
 //commenting
 
 app.post('/addcomment', commentController.postAddComment);
+
+//searching
+app.get('/search', searchController.getSearch);
 
 
 //logout
