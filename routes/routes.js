@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const assert = require('assert');
+const filepond = require('filepond');
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
@@ -15,8 +16,9 @@ const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 const postController = require('../controllers/postController.js');
 const profileController = require('../controllers/profileController.js');
-const searchController = require('../controllers/searchController.js');
 const commentController = require('../controllers/commentController.js');
+const likeController = require('../controllers/likeController.js');
+const followController = require('../controllers/followController.js');
 
 app.use(session({
   cookieName:'session',
@@ -44,20 +46,21 @@ app.post('/registerAvatar', registerController.postAvatar);
 //posting
 app.post('/postprocessing', postController.postAddPost);
 app.get('/home', postController.getHome);
-  //edit post
-  app.post('/editprocessing', postController.postEditPost);
-  //delete post
-  app.post('/deletepost', postController.postDeletePost);
-//commenting
 
+//edit post
+app.post('/editprocessing', postController.postEditPost);
+//delete post
+app.post('/deletepost', postController.postDeletePost);
+
+//commenting
 app.post('/addcomment', commentController.postAddComment);
 
-//searching
-app.get('/search', searchController.getSearch);
+//liking
+app.post('/likepost', likeController.postLike);
+app.post('/unlikepost', likeController.deleteLike);
 
-
-//update profile
-app.post('/editprofile', profileController.postEditProfile);
+//following
+app.post('/following', followController.follow);
 
 //logout
 app.get('/logout', function(req, res) {

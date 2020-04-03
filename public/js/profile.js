@@ -1,6 +1,19 @@
 $(document).ready(function()
 {
+  FilePond.registerPlugin(FilePondPluginImagePreview);
+  FilePond.registerPlugin(FilePondPluginImageResize);
+  FilePond.registerPlugin(FilePondPluginFileEncode);
 
+  FilePond.setOptions({
+      imagePreviewHeight: 250,
+      imageResizeTargetWidth: 640,
+      imageResizeTargetHeight: 480
+  })
+
+  FilePond.parse(document.body)
+
+  $(document).tooltip();
+  
     $("#profred").click(function()
     {
         window.location.href = "profile";
@@ -38,9 +51,5 @@ $(document).ready(function()
       readURL(this);
     });
 
-
-    $(function() {
-      $( document ).tooltip();
-    } );
 
 });

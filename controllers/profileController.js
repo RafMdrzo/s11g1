@@ -5,6 +5,7 @@ const mongo = require('mongodb');
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
+const Following = require('../models/Following');
 const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
@@ -36,6 +37,7 @@ const profileController = {
                         }, function(){
                             client.close();
                             res.render('profile', {
+                                layout: false,
                                 myavatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                 avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                 bio: result.bio,
@@ -82,13 +84,13 @@ const profileController = {
                             client.close();
                             var myUser = req.session.username;
                             var projectNew = 'imgType avatar';
+                            var findFollow = 'user following';
 
                             db.findOne(User, {username: myUser}, projectNew, (checkRes)=>{
                                 if(checkRes != null)
                                 {
-                                    res.render('profile', {
+                                    var userMirror = {
                                         myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
-
                                         avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                         bio: result.bio,
                                         location: result.location,
@@ -96,15 +98,31 @@ const profileController = {
                                         name: result.fullName,
                                         posts: resulter,
                                         status: myUser != currentUser ? true : false,
-                                        follow: true,
-                                        });
+                                        follow: false
+                                    }
+
+                                    db.findOne(Following, {user: myUser, following: userMirror.username}, findFollow, (followRes)=>{
+                                        if(followRes != null)
+                                        {
+                                            var followVal = true;
+                                        }
+                                    });
+
+                                    res.render('profile', {                                    
+                                        myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
+                                        avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+                                        bio: result.bio,
+                                        location: result.location,
+                                        username: result.username,
+                                        name: result.fullName,
+                                        posts: resulter,
+                                        status: myUser != currentUser ? true : false,
+                                        follow: followVal
+                                    });
                                 } else {
                                     res.send(500 + ' Error loading');
                                 }
-
                             })
-
-
                         });
                     });
                 } else {
@@ -119,34 +137,38 @@ const profileController = {
         var newloc = req.body.newloc;
         var newavatar = req.body.newavatar;
         var newusername = req.body.newhandle;
-
+        console.log(newavatar);
         var currentUser = req.session.username;
         var filter = {username: currentUser};
 
         if(newavatar != null)
         {
-            var pic = JSON.parse(newavatar);
+            try{
+                var pic = JSON.parse(newavatar);
+                if(pic != null && imageMimeTypes.includes(pic.type))
+                {
+                    var dat = new Buffer.from(pic.data, 'base64');
+                    var dattype = pic.type;
 
-            if(pic != null && imageMimeTypes.includes(pic.type))
-            {
-                var dat = new Buffer.from(pic.data, 'base64');
-                var dattype = pic.type;
-
-                db.updateOne(User, filter, {
-                    bio: newbio,
-                    username: newusername,
-                    location: newloc,
-                    avatar: dat,
-                    imgType: dattype
-                });
-            } else {
+                    db.updateOne(User, filter, {
+                        bio: newbio,
+                        username: newusername,
+                        location: newloc,
+                        avatar: dat,
+                        imgType: dattype
+                    });
+                } 
+            } catch(err){
+                console.log('No Uploaded image');
                 db.updateOne(User, filter, {
                     bio: newbio,
                     username: newusername,
                     location: newloc
                 });
-            }
            
+
+            } 
+                
         } else {
             db.updateOne(User, filter, {
                 bio: newbio,
