@@ -23,7 +23,15 @@
          <p class='desc-js'>&ensp;{{this.post_description}}</p>
         </div>
         <div class="photo-actions">
-          <img class="socact-action" src="img/heart.png">
+          {{#if liked}}
+          <a href="#" id="liked" class="{{this.post_id}}">
+            <img class="socact-action" src="img/heart2.png" id="likedpic">
+          </a>
+          {{else}}
+          <a href="#" id="unliked" class="{{this.post_id}}">
+            <img class="socact-action" src="img/heart.png" id="unlikedpic">
+          </a>
+          {{/if}}
           <a href='#' class="socact-container" data-toggle="modal" data-target="#{{this.post_id}}">
             <img class="socact-action" src="img/comment.png">
           </a>
@@ -70,7 +78,7 @@
             {{/each}}
 
             <div class="comment-form">
-              <form  method='POST' action='/addcomment' class="col-lg">
+              <form method='POST' action='/addcomment' class="col-lg">
                 <div class="form-row">
                   <div class="comment-input">
                     <input name='comment' class="addcomment form-control mr-sm-2" type="text" placeholder="comment" aria-label="Search">
@@ -108,19 +116,21 @@
           <div class="modal-post-fields">
             <input name='hidden_editID' type='hidden' value='{{this.post_id}}'>
             <input placeholder="Title" name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
-            <textarea name='edit_desc' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="Description">
-              {{this.post_description}}
-            </textarea>
           </div>
-            
+            <textarea name='edit_desc' form ='editPostForm' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="Description">
+            {{this.post_description}}
+            </textarea>
 
-            <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>          
-      </form>
+          <div class="addpost-button">
+            <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>
+          </div>
+        </form>
       <form method='POST' action='/deletepost'>
         <input name='hidden_deleteID' type='hidden' value='{{this.post_id}}'>
-        <button type="submit" class="delpostbtn  btn btn-secondary">Delete Post</button>        
+          <div class="addpost-button">
+            <button type="submit" class="delpostbtn delete-post btn btn-secondary">Delete Post</button>
+          </div>
       </form>
-
 
         </div>
       </div>
