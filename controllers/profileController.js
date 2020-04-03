@@ -100,14 +100,16 @@ const profileController = {
                                         follow: false
                                     }
 
+                                      var followVal = false;
+
                                     db.findOne(Following, {user: myUser, following: userMirror.username}, findFollow, (followRes)=>{
                                         if(followRes != null)
                                         {
-                                            var followVal = true;
+                                           followVal = true;
                                         }
                                     });
 
-                                    res.render('profile', {                                    
+                                    res.render('profile', {
                                         myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
                                         avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                         bio: result.bio,
@@ -163,7 +165,7 @@ const profileController = {
                     location: newloc
                 });
             }
-           
+
         } else {
             db.updateOne(User, filter, {
                 bio: newbio,
@@ -171,7 +173,7 @@ const profileController = {
                 location: newloc
             });
         }
-        
+
 
         res.redirect('/profile');
 
