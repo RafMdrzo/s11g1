@@ -19,7 +19,11 @@ const likeController = {
             post: post_id,
             dateLiked: date
         });
-        res.redirect('/home');
+    },
+
+    deleteLike: async function (req, res) {
+      console.log({post: req.body.post_id, user: req.session.username})
+        db.deleteOne(Like, {post: req.body.post_id, user: req.session.username});
     }
 }
 
