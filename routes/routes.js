@@ -52,6 +52,9 @@ app.get('/home', postController.getHome);
 app.post('/addcomment', commentController.postAddComment);
 
 
+//update profile
+app.post('/editprofile', profileController.postEditProfile);
+
 //logout
 app.get('/logout', function(req, res) {
 

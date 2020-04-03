@@ -17,10 +17,24 @@ $(document).ready(function()
         window.location.href = "home";
     });
 
-    $(".gallery-column a").click(function()
-    {
-      var imgLoc = $(this).children("div").children("img").attr("src");
-      $("#view-pic-cont").attr("src", imgLoc);
 
+    function readURL(input) 
+    {
+        if (input.files && input.files[0]) 
+        {
+          var reader = new FileReader();
+
+          reader.onload = function(e) 
+          {
+            $('#display-pic').attr('src', e.target.result);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function() 
+    {
+      readURL(this);
     });
 });

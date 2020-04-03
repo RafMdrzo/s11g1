@@ -1,4 +1,5 @@
 <!--ACCOUNT SETTINGS MODAL-->
+<script defer src='js/editprofile.js'></script>
   <div class="modal fade" id="accset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-l modal-dialog-centered modal-dialog-scrollable" role="document">
       <div class="modal-content">
@@ -76,42 +77,43 @@
 
         <div class="modal-body">
 
-          <form class="form form-vertical">
+          <form method='POST' action='/editprofile' class="form form-vertical">
             <div class="row">
               <div class="col-sm-4 text-center dp-cont">
                 <div class="custom-prof-pic-cont">
-                  <img id="display-pic" src="img/blank.png" /><br>
-                  <input type='file' id="imgInp"/>
+                  <img id="display-pic" src="{{this.myavatar}}" /><br>
+                  <input name='newavatar' class='filepond' type='file' id="imgInp"/>
                 </div>
               </div>
 
               <div class="col-6 ">
                 <div class="form-group new-data">
                   <label for="userName">Username</label>
-                  <input type="text" class="form-control text-center" id="newhandle" placeholder="New username">
+                  <input value={{this.username}} name='newhandle' type="text" class="form-control text-center" id="newhandle" placeholder="New username">
                 </div>
 
                 <div class="form-group new-data">
                   <label for="newbio">Bio</label>
-                  <textarea type="text" class="form-control text-center" id="newbio" placeholder="Bio"> </textarea>
+                  <textarea name = 'newbio' type="text" class="form-control text-center" id="newbio" placeholder="Bio">{{this.bio}}</textarea>
                 </div>
 
                 <div class="form-group new-data">
                   <label for="newloc">Location</label>
-                  <input type="text" class="form-control text-center" id="newloc" placeholder="Location">
+                  <input value={{this.location}} name='newloc' type="text" class="form-control text-center" id="newloc" placeholder="Location">
                 </div>
 
               </div>
 
             </div>
+            <div class="modal-footer edit-done">
+              <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-secondary" id="save-dat">Save changes</button>
+            </div>
           </form>
 
         </div>
 
-        <div class="modal-footer edit-done">
-          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-secondary" id="save-dat" data-dismiss="modal">Save changes</button>
-        </div>
+        
       </div>
     </div>
   </div>

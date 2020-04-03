@@ -8,6 +8,7 @@ const Post = require('../models/Post.js');
 const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
+
 const profileController = {
     getSelfProfile: async (req, res)=>{
         var currentUser = req.session.username;
@@ -111,6 +112,32 @@ const profileController = {
                 }
 
             });
+    },
+
+    postEditProfile: (req, res)=> {
+        var newbio = req.body.newbio;
+        var newloc = req.body.newloc;
+        var newavatar = req.body.newavatar;
+        var newusername = req.body.newhandle;
+
+        var currentUser = req.session.username;
+        var filter = {username: currentUser};
+
+        var pic = JSON.parse(newavatar);
+        
+        var dat = new Buffer.from(pic.data, 'base64');
+        var dattype = pic.type;
+
+        db.updateOne(User, filter, {
+            bio: newbio,
+            username: newusername,
+            location: newloc,
+            avatar: dat,
+            imgType: dattype
+        });
+
+        res.redirect('/profile');
+
     }
 }
 
