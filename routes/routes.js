@@ -61,7 +61,7 @@ app.post('/unlikepost', likeController.deleteLike);
 //following
 app.post('/following', followController.follow);
 
-app.post('editprofile', profileController.postEditProfile);
+app.post('/editprofile', profileController.postEditProfile);
 
 //logout
 app.get('/logout', function(req, res) {
