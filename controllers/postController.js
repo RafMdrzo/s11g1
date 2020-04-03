@@ -171,24 +171,35 @@ const postController = {
             res.send(500);
           }
         });
+      },
+      postEditPost: (req, res)=>{
+        var modifiedPostID = req.body.hidden_editID;
+        var originalID = modifiedPostID.substr(1);
+        var reqTitle = req.body.edit_title;
+        var reqDesc = req.body.edit_desc;
+
+        var filter = {_id: originalID};
+        db.updateOne(Post, filter,
+        {
+          title: reqTitle,
+          description: reqDesc
+        });
+
+        res.redirect('/home');
+
+      },
+
+      postDeletePost: (req, res) =>{
+        var modifiedPostID = req.body.hidden_deleteID;
+        var originalID = modifiedPostID.substr(1);
+
+        var conditions = {_id: originalID}
+
+        db.deleteOne(Post, conditions);
+        db.deleteMany(Comment, {post: modifiedPostID});
+        res.redirect('/home');
+
       }
-      /*,
-      postEditPost: async function (req, res){
-      var filter = {username: req.query.username};
-
-      var reqBio = req.body.bio_assign;
-      var reqLoc = req.body.loc_assign;
-
-      var projection = 'bio location';
-      db.updateOne(User, filter,
-      {
-      bio: reqBio,
-      location: reqLoc
-    });
-
-    res.redirect('/registerAvatar?username=' + req.query.username);
-
-  } */
 };
 
 module.exports = postController;

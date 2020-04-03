@@ -43,7 +43,10 @@ app.post('/registerAvatar', registerController.postAvatar);
 //posting
 app.post('/postprocessing', postController.postAddPost);
 app.get('/home', postController.getHome);
-
+  //edit post
+  app.post('/editprocessing', postController.postEditPost);
+  //delete post
+  app.post('/deletepost', postController.postDeletePost);
 //commenting
 
 app.post('/addcomment', commentController.postAddComment);

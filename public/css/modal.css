@@ -201,15 +201,34 @@
   width: 200px;
 }
 
+
+.editpost-button {
+  padding-top: 5%;
+  margin: auto;
+  width: 200px;
+}
 .addpostbtn, .editpostbtn, .delpostbtn{
-  border-radius: 10px;
+  border-radius: 20px;
   display: inline-block;
-  height: 40px;
+  height: 8vh;
+  width: 10vw;
   text-align: center;
   font-size: smaller;
   margin-left: 10px;
 }
 
+.editpostbtn {
+  position: relative;
+  left: 15vw;
+  top: 3.4vh;
+  height:8.3vh;
+}
+.delpostbtn {
+  float:right;
+  position: relative;
+  bottom: 5vh;
+  right: 14vw;
+}
 .addpostdesc{
   display: inline-block;
   margin-top: 2.5%;
