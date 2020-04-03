@@ -36,6 +36,7 @@ const profileController = {
                         }, function(){
                             client.close();
                             res.render('profile', {
+                                layout: false,
                                 myavatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                 avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                 bio: result.bio,

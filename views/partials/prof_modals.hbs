@@ -78,10 +78,12 @@
 
           <form method='POST' action='/editprofile' class="form form-vertical">
             <div class="row">
-              <h2 title='Leave blank if you do not want to change your avatar'>Avatar</h2>
-              <br>
-              <input  class='filepond' name='newavatar' type='file' id="imgInp"/>
-                 
+                <div class="col-sm-4 text-center dp-cont">
+                <div class="custom-prof-pic-cont">
+                  <img id="display-pic" src="{{myavatar}}" /><br>
+                  <input class='filepond' name='newavatar' type='file' id="imgInp">
+                </div>
+              </div>  
 
               <div class="col-6 ">
                 <div class="form-group new-data">
