@@ -137,34 +137,38 @@ const profileController = {
         var newloc = req.body.newloc;
         var newavatar = req.body.newavatar;
         var newusername = req.body.newhandle;
-
+        console.log(newavatar);
         var currentUser = req.session.username;
         var filter = {username: currentUser};
 
         if(newavatar != null)
         {
-            var pic = JSON.parse(newavatar);
+            try{
+                var pic = JSON.parse(newavatar);
+                if(pic != null && imageMimeTypes.includes(pic.type))
+                {
+                    var dat = new Buffer.from(pic.data, 'base64');
+                    var dattype = pic.type;
 
-            if(pic != null && imageMimeTypes.includes(pic.type))
-            {
-                var dat = new Buffer.from(pic.data, 'base64');
-                var dattype = pic.type;
-
-                db.updateOne(User, filter, {
-                    bio: newbio,
-                    username: newusername,
-                    location: newloc,
-                    avatar: dat,
-                    imgType: dattype
-                });
-            } else {
+                    db.updateOne(User, filter, {
+                        bio: newbio,
+                        username: newusername,
+                        location: newloc,
+                        avatar: dat,
+                        imgType: dattype
+                    });
+                } 
+            } catch(err){
+                console.log('No Uploaded image');
                 db.updateOne(User, filter, {
                     bio: newbio,
                     username: newusername,
                     location: newloc
                 });
-            }
            
+
+            } 
+                
         } else {
             db.updateOne(User, filter, {
                 bio: newbio,
