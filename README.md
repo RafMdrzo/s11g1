@@ -18,18 +18,18 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Create HTML designs (DONE)
 - Convert to Node.js (DONE)
 - Authentication (ALMOST DONE)
-- User actions (ALMOST DONE)
-- Social media actions (JUST STARTED)
+- User actions (DEBUGGING)
+- Social media actions (ALMOST DONE)
 - Create database (DONE)
-- Create controllers (IN THE PROCESS)
-- Implement database in the server (IN THE PROCESS)
+- Create controllers (DEBUGGING)
+- Implement database in the server (DEBUGGING)
 - Populate database with sample users (NOT STARTED)
 - Debug web server
 - Finalize the web app design
 
 ## Dependencies
 - Node.js
-- MongoDB (DOWNGRADED TO 2.2.33 IN ORDER TO USE FIND + FOREACH FUNCTIONALITY)
+- MongoDB
 - Mongoose
 - Express
 - Express Handlebars
