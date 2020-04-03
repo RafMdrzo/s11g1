@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
-
+  $( document ).tooltip();
+  
     $("#profred").click(function()
     {
         window.location.href = "profile";
@@ -38,9 +39,5 @@ $(document).ready(function()
       readURL(this);
     });
 
-
-    $(function() {
-      $( document ).tooltip();
-    } );
 
 });
