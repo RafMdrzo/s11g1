@@ -1,6 +1,18 @@
 $(document).ready(function()
 {
-  $( document ).tooltip();
+  FilePond.registerPlugin(FilePondPluginImagePreview);
+  FilePond.registerPlugin(FilePondPluginImageResize);
+  FilePond.registerPlugin(FilePondPluginFileEncode);
+
+  FilePond.setOptions({
+      imagePreviewHeight: 250,
+      imageResizeTargetWidth: 640,
+      imageResizeTargetHeight: 480
+  })
+
+  FilePond.parse(document.body)
+
+  $(document).tooltip();
   
     $("#profred").click(function()
     {

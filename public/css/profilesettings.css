@@ -289,7 +289,8 @@
   
   .filepond--root {
     position: relative;
-    height: 40vh;
+    bottom: 2vh;
+    height: 45vh;
     min-width: 15vw;
   }
   
