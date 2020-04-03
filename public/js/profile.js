@@ -1,12 +1,12 @@
 $(document).ready(function()
 {
 
-    $(".profile-red").click(function()
+    $("#profred").click(function()
     {
         window.location.href = "profile";
     });
 
-    $(".profile-blue").click(function()
+    $("#logred").click(function()
     {
         window.location.href = "logout";
     });
@@ -37,4 +37,10 @@ $(document).ready(function()
     {
       readURL(this);
     });
+
+
+    $(function() {
+      $( document ).tooltip();
+    } );
+
 });

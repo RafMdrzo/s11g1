@@ -2,7 +2,7 @@
   <!--FOLIO TYPED-->
   <div class="col">
     <div class="logo navbar-brand d-flex w-50 mr-auto" id="navfolio">
-      <button class="btn btn-link"id="home-red"><h1><span id="typed"></span></h1></button>
+      <button onclick="window.location.href = 'home'" class="btn btn-link"id="home-red"><h1><span id="typed"></span></h1></button>
       <script>
       $('document').ready(function(){
         var typed = new Typed('#typed', {
@@ -45,8 +45,9 @@
             <img class="nav-avatar" src="{{myavatar}}">
           </a>
           <div class="dropdown-menu dropdown-menu-right text-left" aria-labelledby="navbarDropdown">
-            <button type="button" class="profile-red dropdown-item  btn-light" id="redirex profred">Profile</button>
-            <button type="button" class="profile-blue dropdown-item  btn-light" id="redirex logred">Log out</button>
+            <button onclick="window.location.href = 'profile'"type="button" class="profile-red dropdown-item  btn-light" id="redirex profred">Profile</button>
+            {{{custom_nav}}}
+            <button onclick="window.location.href = 'logout'" type="button" class="profile-blue dropdown-item  btn-light" id="redirex logred">Log out</button>
           </div>
         </li>
       </ul>
