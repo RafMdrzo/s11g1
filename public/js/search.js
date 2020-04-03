@@ -3,13 +3,17 @@ $(document).ready(function() {
     event.preventDefault();
     var username = $('#myInput').val();
     $('#myDropdown').empty();
+    alert(username);
 
-    document.getElementById("myDropdown").classList.toggle("show");
     $.get('/search', {username: username}, function(result) {
-      if(result != null)
-      $('#myDropdown').append('<a href="/' + result.username + '"> ' + result.fullName + ' • ' + '@' + result.username);
-      else
-      return;
+      if(result != null) {
+        $('#myDropdown').append('<a href="/' + result.username + '"> ' + result.fullName + ' • ' + '@' + result.username);
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      else {
+        return;
+      }
+
     });
   });
 
