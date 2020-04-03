@@ -201,7 +201,7 @@
   width: 200px;
 }
 
-.addpostbtn, .editpostbtn{
+.addpostbtn, .editpostbtn, .delpostbtn{
   border-radius: 10px;
   display: inline-block;
   height: 40px;
@@ -273,4 +273,3 @@
   height: 50vh;
   min-width: 55vw;
 }
-
