@@ -85,22 +85,22 @@ const profileController = {
                                 {
                                     res.render('profile', {
                                         myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
-    
+
                                         avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                         bio: result.bio,
                                         location: result.location,
                                         username: result.username,
                                         name: result.fullName,
                                         posts: resulter,
-                                        status: true,
+                                        status: myUser != currentUser ? true : false,
                                         follow: true,
                                         });
                                 } else {
                                     res.send(500 + ' Error loading');
                                 }
-                                
+
                             })
-                            
+
 
                         });
                     });
