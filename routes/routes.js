@@ -17,6 +17,7 @@ const postController = require('../controllers/postController.js');
 const profileController = require('../controllers/profileController.js');
 const commentController = require('../controllers/commentController.js');
 const likeController = require('../controllers/likeController.js');
+const followController = require('../controllers/followController.js');
 
 app.use(session({
   cookieName:'session',
@@ -50,6 +51,9 @@ app.post('/addcomment', commentController.postAddComment);
 
 //liking
 app.post('/likepost', likeController.postLike);
+
+//following
+app.post('/following', followController.follow);
 
 //logout
 app.get('/logout', function(req, res) {

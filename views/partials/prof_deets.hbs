@@ -5,22 +5,23 @@
             <img  class = "fill" src="{{avatar}}">
           </div>
           {{#if status}}
+            <!-- FOLLOW/UNFOLLOW -->
             {{#if follow}}
               <div>
-                <button type="button" id="follow" class="btn btn-primary profbtn">
-                  Unfollow <!-- FOLLOW/UNFOLLOW -->
+                <button type="button" id="unfollow" class="btn btn-primary profbtn">
+                  Unfollow 
                 </button>
               </div>
             {{else}}
               <div>
                 <button type="button" id="follow" class="btn btn-primary profbtn">
-                  Follow <!-- FOLLOW/UNFOLLOW -->
+                  Follow
                 </button>
               </div>
             {{/if}}
           {{else}}
             <div>
-              <button type="button" id="follow" class="btn btn-primary profbtn" data-toggle="modal" data-target="#accset">
+              <button type="button" id="edit-prof" class="btn btn-primary profbtn" data-toggle="modal" data-target="#accset">
                 Edit Profile
               </button>
             </div>

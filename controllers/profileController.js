@@ -5,6 +5,7 @@ const mongo = require('mongodb');
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
+const Following = require('../models/Following');
 const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
@@ -82,13 +83,13 @@ const profileController = {
                             client.close();
                             var myUser = req.session.username;
                             var projectNew = 'imgType avatar';
+                            var findFollow = 'user following';
 
                             db.findOne(User, {username: myUser}, projectNew, (checkRes)=>{
                                 if(checkRes != null)
                                 {
-                                    res.render('profile', {
+                                    var userMirror = {
                                         myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
-
                                         avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
                                         bio: result.bio,
                                         location: result.location,
@@ -96,15 +97,31 @@ const profileController = {
                                         name: result.fullName,
                                         posts: resulter,
                                         status: myUser != currentUser ? true : false,
-                                        follow: true,
-                                        });
+                                        follow: false
+                                    }
+
+                                    db.findOne(Following, {user: myUser, following: userMirror.username}, findFollow, (followRes)=>{
+                                        if(followRes != null)
+                                        {
+                                            var followVal = true;
+                                        }
+                                    });
+
+                                    res.render('profile', {                                    
+                                        myavatar: `data:${checkRes.imgType};charset=utf-8;base64,${checkRes.avatar.toString('base64')}`,
+                                        avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+                                        bio: result.bio,
+                                        location: result.location,
+                                        username: result.username,
+                                        name: result.fullName,
+                                        posts: resulter,
+                                        status: myUser != currentUser ? true : false,
+                                        follow: followVal
+                                    });
                                 } else {
                                     res.send(500 + ' Error loading');
                                 }
-
                             })
-
-
                         });
                     });
                 } else {
