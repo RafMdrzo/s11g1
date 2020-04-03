@@ -90,7 +90,8 @@ const postController = {
                 post_elapsed: diff_hours(new Date(Date.now()), new Date(result[i].dateCreated)) + ' hours ago',
                 post_id: 'a' + result[i]._id,
                 status: result[i].user == myUser ? true : false,
-                comment: []
+                comment: [],
+                edit_id: 'aa' + result[i]._id
               };
               postResulter.push(postMirror);
             }

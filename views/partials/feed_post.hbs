@@ -29,7 +29,7 @@
           </a>
           <img class="socact-action" src="img/share.png">
           {{#if status}}
-          <a href='#' class='edit-post socact-container' data-toggle='modal' data-target='#editModal'>
+          <a href='#' class='edit-post socact-container' data-toggle='modal' data-target='#{{this.edit_id}}'>
           <img class='socact-action' src='img/options.png'>
           </a>
           {{/if}}
@@ -88,4 +88,41 @@
     </div>
   </div>
 </div>
+
+
+<!--EDIT POST MODAL-->
+  <div class="modal fade" id="{{this.edit_id}}" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+      <div class="modal-content row">
+        <!-- Modal body -->
+        <div class="modal-post-container">
+          <div class="modal-header">
+            Edit Post
+          </div>
+          <div class="pic-row">
+            <img class="fill-row" src="{{this.post_image}}">
+          </div>
+
+    <form method='POST' action='/editprocessing'>
+          <div class="modal-post-fields">
+            <input name='hidden_editID' type='hidden' value='{{this.post_id}}'>
+            <input name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
+            <input name="edit_desc" value="{{this.post_description}}" class="addpostdesc form-control mr-sm-2" type="text" aria-label="Search">
+          </div>
+          <div class="addpost-button">
+            <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>
+          </div>
+        </form>
+      <form method='POST' action='/deletepost'>
+        <input name='hidden_deleteID' type='hidden' value='{{this.post_id}}'>
+          <div class="addpost-button">
+            <button type="submit" class="delpostbtn delete-post btn btn-secondary">Delete Post</button>
+          </div>
+      </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 {{/each}}
