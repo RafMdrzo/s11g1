@@ -72,6 +72,8 @@ app.post('/editemail', profileController.postEditEmail);
 app.post('/changepassword', profileController.postChangePassword);
 
 app.get('/search', searchController.getSearch);
+//delete user
+app.post('/deleteuser', registerController.deleteUser);
 
 //logout
 app.get('/logout', function(req, res) {
