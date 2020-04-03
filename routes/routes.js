@@ -16,6 +16,7 @@ const loginController = require('../controllers/loginController.js');
 const registerController = require('../controllers/registerController.js');
 const postController = require('../controllers/postController.js');
 const profileController = require('../controllers/profileController.js');
+const searchController = require('../controllers/searchController.js');
 const commentController = require('../controllers/commentController.js');
 const likeController = require('../controllers/likeController.js');
 const followController = require('../controllers/followController.js');
@@ -62,6 +63,8 @@ app.post('/unlikepost', likeController.deleteLike);
 app.post('/following', followController.follow);
 
 app.post('/editprofile', profileController.postEditProfile);
+
+app.get('/search', searchController.getSearch);
 
 //logout
 app.get('/logout', function(req, res) {

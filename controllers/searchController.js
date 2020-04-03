@@ -25,6 +25,7 @@ const searchController = {
       if(result != null) {
         console.log(result);
         res.send(result);
+        console.log(result);
       }
     });
   }

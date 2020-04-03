@@ -258,7 +258,7 @@
   color: #2E2E2E;
 }
 
-#follow {
+#follow, #unfollow, #edit-prof {
   float: bottom;
   margin-top: 20px;
   width: 150px;

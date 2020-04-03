@@ -178,7 +178,7 @@ const profileController = {
         }
 
 
-        res.redirect('/profile');
+        res.redirect(req.get('referer'));
 
     }
 }

@@ -54,7 +54,7 @@ const postController = {
             imgType: ""
 
           } );
-          res.redirect('/home');
+          res.redirect(req.get('referer'));
         }
 
       }
@@ -220,7 +220,7 @@ const postController = {
           description: reqDesc
         });
 
-        res.redirect('/home');
+        res.redirect(req.get('referer'));
 
       },
 
