@@ -23,7 +23,15 @@
          <p class='desc-js'>&ensp;{{this.post_description}}</p>
         </div>
         <div class="photo-actions">
-          <img class="socact-action" src="img/heart.png">
+          {{#if liked}}
+            <img class="socact-action" src="img/heart2.png">
+          {{else}}
+          <form method='POST' onclick="/likepost">
+            <button type="submit">
+              <img class="socact-action" src="img/heart.png">
+            </button>
+          </form>
+          {{/if}}
           <a href='#' class="socact-container" data-toggle="modal" data-target="#{{this.post_id}}">
             <img class="socact-action" src="img/comment.png">
           </a>
@@ -70,7 +78,7 @@
             {{/each}}
 
             <div class="comment-form">
-              <form  method='POST' action='/addcomment' class="col-lg">
+              <form method='POST' action='/addcomment' class="col-lg">
                 <div class="form-row">
                   <div class="comment-input">
                     <input name='comment' class="addcomment form-control mr-sm-2" type="text" placeholder="comment" aria-label="Search">

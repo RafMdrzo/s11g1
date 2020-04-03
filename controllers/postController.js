@@ -14,6 +14,7 @@ const R = require('ramda');
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
 const Comment = require('../models/Comment.js');
+const Like = require('../models/Likes.js');
 
 const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
@@ -69,10 +70,12 @@ const postController = {
         var postResulter = [];
         var commentResulter = [];
         var userResulter = [];
+        var likeResulter = [];
         var customResulter = [];
 
         var commentProjection = '_id post text user dateCreated';
         var userProjection = 'username avatar imgType';
+        var likeProjection = 'post_id user'
         var myUser = req.session.username;
 
         db.findMany(Post, {}, projection,function(result){
@@ -91,10 +94,40 @@ const postController = {
                 post_id: 'a' + result[i]._id,
                 status: result[i].user == myUser ? true : false,
                 comment: [],
-                edit_id: 'aa' + result[i]._id
+                edit_id: 'aa' + result[i]._id,
+                liked: false
               };
               postResulter.push(postMirror);
             }
+            
+            //process likes
+            db.findMany(Like, likeProjection, (likeRes)=>{
+              if(likeRes != null){
+                for(i = 0; i < likeRes.length; i++)
+                {
+                  var likeMirror = {
+                    post_id: likeRes[i].post_id,
+                    user: likeRes[i].user
+                  }
+                  likeResulter.push(likeMirror);
+                }
+              }
+
+              for(i = 0; i < postResulter.length; i++)
+              {
+                for(j = 0; j < likeResulter.length; j++)
+                {
+                  if(postResulter[j].post_id == likeResulter[i].post_id)
+                  {
+                    if(likeResulter[i].user == myUser)
+                    {
+                      postResulter[j].liked = true;
+                    }
+                  }
+                }
+              }
+            });  
+
             //process comment
             db.findMany(Comment, {}, commentProjection, (commRes)=>{
               if(commRes != null){
@@ -109,6 +142,7 @@ const postController = {
 
                   commentResulter[i] = commentMirror;
                 }
+
                 //process user result
                 db.findMany(User, {}, userProjection, (profRes)=>{
                   if(profRes != null){
@@ -122,6 +156,7 @@ const postController = {
                       userResulter.push(userMirror);
 
                     }
+
                     for(i = 0; i < postResulter.length; i++)
                     {
                       var finalResulter = [];
@@ -144,7 +179,6 @@ const postController = {
                         }
                       }
                     }
-
 
                     //logged-in User
                     var newQuery = {username: req.session.username};
