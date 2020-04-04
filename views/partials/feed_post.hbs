@@ -117,7 +117,7 @@
         <form id = 'editPostForm'method='POST' action='/editprocessing'>
           <div class="modal-post-fields">
             <input name='hidden_editID' type='hidden' value='{{this.post_id}}'>
-            <input placeholder="Title" name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "35">
+            <input placeholder="Title" name="edit_title" value='{{this.post_title}}' class="addposttitle form-control mr-sm-2" type="text" aria-label="Search" maxlength = "15">
             <textarea name='edit_desc' wrap='hard' class="addpostdesc form-control mr-sm-2" type="text" placeholder="Description">
               {{this.post_description}}
             </textarea>
