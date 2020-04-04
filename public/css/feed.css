@@ -161,18 +161,11 @@ nav{
 #post-container {
   transform: translateY(60px);
   width: 100%;
-  /*
-  overflow-y: scroll;
-  scroll-snap-type: mandatory;
-  */
 }
 
 #post {
   width: 100vw;
   height: calc(100vh - 60px);
-  /*
-  scroll-snap-align: start;
-  */
 }
 
 #photo-container {
@@ -272,7 +265,7 @@ nav{
   word-wrap: break-word;
   float: left;
   font-size: 7vh;
-  line-height: 5.5vh;
+  line-height: 2.2vh;
 }
 .navbar {
   position: fixed;
