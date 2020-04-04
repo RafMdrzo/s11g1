@@ -35,7 +35,9 @@
             <a href='#' class="socact-container" data-toggle="modal" data-target="#{{this.post_id}}">
               <img class="socact-action" src="img/comment.png">
             </a>
-            <img class="socact-action" src="img/share.png">
+            <a href="https://twitter.com/intent/tweet?text=localhost:3000/{{this.post_author}}" class="socact-container" target="_blank">
+              <img class="socact-action" src="img/share.png">
+            </a>
             {{#if status}}
             <a href='#' class='edit-post socact-container' data-toggle='modal' data-target='#{{this.edit_id}}'>
               <img class='socact-action' src='img/options.png'>
