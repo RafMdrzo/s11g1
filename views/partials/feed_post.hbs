@@ -1,6 +1,6 @@
-{{#each post as |post|}}
 <div id="post-container">
-  <div id="post">
+  {{#each post as |post|}}
+  <div id="post" class="post">
     <div id="photo-container">
       <div id="photo">
         <img class="fill" src="{{this.post_image}}">
@@ -45,8 +45,10 @@
       </div>
     </div>
   </div>
+  {{/each}}
 </div>
 
+{{#each post as |post|}}
 <div class="modal fade" id="{{this.post_id}}" role="dialog">
   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 
@@ -121,7 +123,7 @@
             </textarea>
           </div>
 
-          
+
           <button type="submit" class="editpostbtn btn btn-secondary">Edit Post</button>
         </form>
         <form method='POST' action='/deletepost'>
