@@ -115,7 +115,7 @@ const postController = {
                           post_title: result[i].title,
                           post_description: result[i].description,
                           post_author: result[i].user,
-                          post_elapsed: elapsed > 24 ? (Math.floor(elapsed/24) > 1 ? (Math.floor(elapsed/24) + ' days ago') : '1 day ago') : (Math.floor(elapsed) > 1 ? (elapsed + ' hours ago') : (Math.floor(elapsed*60) <= 1 ? '1 minute ago' : (Math.floor(elapsed*60) + ' minutes ago'))),
+                          post_elapsed: elapsed > 24 ? (Math.floor(elapsed/24) > 1 ? (Math.floor(elapsed/24) + ' days ago') : '1 day ago') :  ( Math.floor(elapsed) == 1? (Math.floor(elapsed) + ' hour ago') : (Math.floor(elapsed) > 1 ? (elapsed + ' hours ago') : (Math.floor(elapsed*60) <= 1 ? '1 minute ago' : (Math.floor(elapsed*60) + ' minutes ago')))),
                           post_id: 'a' + result[i]._id,
                           status: result[i].user == myUser ? true : false,
                           comment: [],
