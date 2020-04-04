@@ -27,39 +27,38 @@ const profileController = {
         (result)=>{
           if(result != null){
             var resulter = [];
-            mongo.connect(url, function(err, client){
-              assert.equal(null, err);
-              var cursor = client.collection('posts').find({user: result.username});
 
-              cursor.forEach(function(doc, err){
-                assert.equal(null, err);
+            db.findMany(Post, {username: result.username}, '_id postpic imgType', (postRes)=>{
+
+              for(i = 0; i < postRes.length; i++){
                 var postMirror = {
-                  id: 'a' + `${doc._id}`,
-                  path: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`,
+                  id: 'a' + `${postRes[i]._id}`,
+                  path: `data:${postRes[i].imgType};charset=utf-8;base64,${postRes[i].postpic.toString('base64')}`,
                   orientation: 'modal-img'
                 };
 
-                var base64 = doc.postpic.toString('base64');
+                var base64 = postRes[i].postpic.toString('base64');
                 var img = Buffer.from(base64, 'base64')
                 var dimensions = sizeOf(img);
 
                 postMirror.orientation = dimensions.width > dimensions.height ? 'modal-img' : 'modal-img-vert';
                 resulter.push(postMirror);
-
-              }, function(){
-                client.close();
-                res.render('profile', {
-                  myavatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
-                  avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
-                  bio: result.bio,
-                  location: result.location,
-                  username: result.username,
-                  name: result.fullName,
-                  posts: resulter,
-                  custom_nav: '<button type="button" class="dropdown-item btn-light" id="getdat" data-toggle="modal" data-target="#profset">Profile Settings</button>'                                });
-
-                });
+              }
+              res.render('profile', {
+                myavatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+                avatar: `data:${result.imgType};charset=utf-8;base64,${result.avatar.toString('base64')}`,
+                bio: result.bio,
+                location: result.location,
+                username: result.username,
+                name: result.fullName,
+                posts: resulter,
+                custom_nav: '<button type="button" class="dropdown-item btn-light" id="getdat" data-toggle="modal" data-target="#profset">Profile Settings</button>'
               });
+
+
+
+            });
+            
             } else {
               res.send(500 + " Can't find the user");
             }
