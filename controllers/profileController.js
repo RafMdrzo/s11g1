@@ -9,6 +9,8 @@ const Following = require('../models/Following');
 const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
+const sizeOf = require('image-size');
+
 
 const profileController = {
   getSelfProfile: async (req, res)=>{
@@ -33,9 +35,16 @@ const profileController = {
               cursor.forEach(function(doc, err){
                 assert.equal(null, err);
                 var postMirror = {
-                  path: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
+                  id: 'a' + `${doc._id}`,
+                  path: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`,
+                  orientation: 'modal-img'
                 };
 
+                var base64 = doc.postpic.toString('base64');
+                var img = Buffer.from(base64, 'base64')
+                var dimensions = sizeOf(img);
+
+                postMirror.orientation = dimensions.width > dimensions.height ? 'modal-img' : 'modal-img-vert';
                 resulter.push(postMirror);
 
               }, function(){
@@ -82,9 +91,16 @@ const profileController = {
                   cursor.forEach(function(doc, err){
                     assert.equal(null, err);
                     var postMirror = {
-                      path: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`
+                      id: 'a' + `${doc._id}`,
+                      path: `data:${doc.imgType};charset=utf-8;base64,${doc.postpic.toString('base64')}`,
+                      orientation: 'modal-img'
                     };
 
+                    var base64 = doc.postpic.toString('base64');
+                    var img = Buffer.from(base64, 'base64')
+                    var dimensions = sizeOf(img);
+
+                    postMirror.orientation = dimensions.width > dimensions.height ? 'modal-img' : 'modal-img-vert';
                     resulter.push(postMirror);
 
                   }, function(){

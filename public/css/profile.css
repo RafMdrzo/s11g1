@@ -196,6 +196,11 @@ and (min-resolution: 192dpi) {
   background-size:cover;
 }
 
+.enlarge-post {
+  max-width: 80%;
+  max-height: 80%;
+}
+
 .gallery-item-container:after {
   content: "";
   display: block;
@@ -258,6 +263,20 @@ and (min-resolution: 192dpi) {
   word-wrap: break-word;
   width: 100%;
   color: #2E2E2E;
+}
+
+.viewer {
+  text-align: center;
+}
+
+#modal-img {
+  width: 80vw;
+  display: inline-block;
+}
+
+#modal-img-vert {
+  height: 80vh;
+  display: inline-block;
 }
 
 #follow, #unfollow, #edit-prof {
