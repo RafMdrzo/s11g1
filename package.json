@@ -21,6 +21,7 @@
     "filepond-plugin-file-encode": "^2.1.5",
     "filepond-plugin-image-resize": "^2.0.4",
     "hbs": "^4.1.1",
+    "image-size": "^0.8.3",
     "install": "^0.13.0",
     "mongo": "^0.1.0",
     "mongodb": "^2.2.33",
