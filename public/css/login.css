@@ -36,7 +36,7 @@
   position: static;
   width:400px;
   height: 300px;
-  background: #f2f2f2;
+  background: #f5f6fa;
   border-color: #A8A8A8;
   border-radius: 10px;
   border-style:solid;
@@ -46,8 +46,8 @@
   opacity: 100%
 }
 
-#regBtn{
-  background-color: #16A085;
+#regBtn {
+  background-color: #0097e6;
   border-radius: 50px;
   border-width: 0;
   position: static;
@@ -64,8 +64,44 @@
   vertical-align: middle;
 }
 
+#regMod {
+  background-color: #0097e6;
+  border-radius: 50px;
+  border-width: 0;
+  position: static;
+  top: 70%;
+  height: 50px;
+  width:120px;
+  color: #f2f2f2;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left:20px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 3%;
+  vertical-align: middle;
+}
+
+#cancelMod {
+  background-color: #2f3640;
+  border-radius: 50px;
+  border-width: 0;
+  position: static;
+  top: 70%;
+  height: 50px;
+  width:120px;
+  color: #f2f2f2;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left:20px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 3%;
+  vertical-align: middle;
+}
+
 #logBtn {
-  background-color: #16A085;
+  background-color: #0097e6;
   border-radius: 50px;
   border-width: 0;
   position: static;
@@ -79,14 +115,6 @@
   display: inline-block;
   padding-top: 3%;
   vertical-align: middle;
-}
-#cancelMod{
-  border-radius: 50px;
-  width: 90px;
-}
-#regMod{
-  border-radius: 50px;
-  width: 90px;
 }
 
 #loginForm{
@@ -103,7 +131,8 @@
 }
 
 #buttonCont {
-  margin-top: 35px;
+  padding-top: 25px;
+  margin-bottom: 15px;
 }
 
 .vertical-center {
@@ -122,6 +151,17 @@
   font-size: 15px;
 }
 
+.modal-body {
+  margin: 20px;
+  height: auto;
+}
+
+.modal-footer {
+
+  margin-top: 30px;
+}
+
+
 h1 {
   font-size: 55px;
   letter-spacing: 5px;
@@ -129,6 +169,7 @@ h1 {
 
 body
 {
+  font-family: 'Product Sans';
   background-image: url('../img/landing0.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -148,7 +189,7 @@ html
 #forgotten{
   align-self: left;
   font-size: 15px;
-  color: #16A085;
+  color: #0097e6;
 }
 
 #passEdit{
