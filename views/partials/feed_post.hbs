@@ -1,51 +1,52 @@
-<div id="post-container">
-  {{#each post as |post|}}
-  <div id="post" class="post">
-    <div id="photo-container">
-      <div id="photo">
-        <img class="fill" src="{{this.post_image}}">
+<div id="post-view-container">
+  <div id="post-container">
+    {{#each post as |post|}}
+    <div id="post" class="post">
+      <div id="photo-container">
+        <div id="{{this.orientation}}" style="background-image:url('{{this.post_image}}');">
+        </div>
       </div>
-    </div>
 
-    <div id="meta-container">
-      <div id="meta">
-        <div class="photo-header">
-          <label class='title-js'>{{this.post_title}}</label>
-          <br>
-          <br>
-          <br>
-          <span class="author">by <a href="/{{this.post_author}}"> {{this.post_author}} </a></span>
-          <br>
-          <span class="date">{{this.post_elapsed}}</span> <br>
-        </div>
-        <hr>
-        <div class="photo-description ">
-          <p class='desc-js'>&ensp;{{this.post_description}}</p>
-        </div>
-        <div class="photo-actions">
-          {{#if liked}}
-          <a href="#" id="liked" class="{{this.post_id}}">
-            <img class="socact-action" src="img/heart2.png" id="likedpic">
-          </a>
-          {{else}}
-          <a href="#" id="unliked" class="{{this.post_id}}">
-            <img class="socact-action" src="img/heart.png" id="unlikedpic">
-          </a>
-          {{/if}}
-          <a href='#' class="socact-container" data-toggle="modal" data-target="#{{this.post_id}}">
-            <img class="socact-action" src="img/comment.png">
-          </a>
-          <img class="socact-action" src="img/share.png">
-          {{#if status}}
-          <a href='#' class='edit-post socact-container' data-toggle='modal' data-target='#{{this.edit_id}}'>
-            <img class='socact-action' src='img/options.png'>
-          </a>
-          {{/if}}
+      <div id="meta-container">
+        <div id="meta">
+          <div class="photo-header">
+            <label class='title-js'>{{this.post_title}}</label>
+            <br>
+            <br>
+            <br>
+            <span class="author">by <a href="/{{this.post_author}}"> {{this.post_author}} </a></span>
+            <br>
+            <span class="date">{{this.post_elapsed}}</span> <br>
+          </div>
+          <hr>
+          <div class="photo-description ">
+            <p class='desc-js'>&ensp;{{this.post_description}}</p>
+          </div>
+          <div class="photo-actions">
+            {{#if liked}}
+            <a href="#" id="liked" class="{{this.post_id}}">
+              <img class="socact-action" src="img/heart2.png" id="likedpic">
+            </a>
+            {{else}}
+            <a href="#" id="unliked" class="{{this.post_id}}">
+              <img class="socact-action" src="img/heart.png" id="unlikedpic">
+            </a>
+            {{/if}}
+            <a href='#' class="socact-container" data-toggle="modal" data-target="#{{this.post_id}}">
+              <img class="socact-action" src="img/comment.png">
+            </a>
+            <img class="socact-action" src="img/share.png">
+            {{#if status}}
+            <a href='#' class='edit-post socact-container' data-toggle='modal' data-target='#{{this.edit_id}}'>
+              <img class='socact-action' src='img/options.png'>
+            </a>
+            {{/if}}
+          </div>
         </div>
       </div>
     </div>
+    {{/each}}
   </div>
-  {{/each}}
 </div>
 
 {{#each post as |post|}}
@@ -125,11 +126,11 @@
             <textarea name='edit_desc' class="addpostdesc form-control" rows="3" type="text" placeholder="Description">{{this.post_description}}</textarea>
           </div>
           <div class="container" id="buttonCont" align="center">
-          <button type="submit" class="editpostbtn">Edit Post</button>
-        </form>
-        <form method='POST' action='/deletepost'>
-          <input name='hidden_deleteID' type='hidden' value='{{this.post_id}}'>
-          <button type="submit" class="delpostbtn">Delete Post</button>
+            <button type="submit" class="editpostbtn">Edit Post</button>
+          </form>
+          <form method='POST' action='/deletepost'>
+            <input name='hidden_deleteID' type='hidden' value='{{this.post_id}}'>
+            <button type="submit" class="delpostbtn">Delete Post</button>
           </div>
         </form>
 

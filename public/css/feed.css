@@ -186,7 +186,7 @@ nav{
   height: 100%;
 }
 
-#photo {
+#photo, #photovert {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -202,6 +202,14 @@ nav{
   flex-direction: row;
   overflow: hidden;
   flex: 1;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+#photovert {
+  height: 50vw;
+  width: 45vh;
 }
 
 
