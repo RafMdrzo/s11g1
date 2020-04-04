@@ -44,9 +44,12 @@ const loginController = {
             req.session.loggedin = true;
             res.redirect("/home");
           } else {
-            res.send(500);
+            res.redirect("/");
           }
         }
+      }
+      else {
+      res.redirect("/");
       }
     });
   }
