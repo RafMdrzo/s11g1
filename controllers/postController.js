@@ -2,7 +2,7 @@ function diff_hours(dt2, dt1)
 {
 var diff =(dt2.getTime() - dt1.getTime()) / 1000;
 diff /= (60 * 60);
-return Math.abs(Math.round(diff));
+  return diff;
 }
 
 const db = require('../models/db.js');
@@ -86,12 +86,13 @@ const postController = {
 
           for(i = 0; i < result.length; i++)
           {
+            elapsed = diff_hours(new Date(Date.now()), new Date(result[i].dateCreated));
             var postMirror = {
               post_image: `data:${result[i].imgType};charset=utf-8;base64,${result[i].postpic.toString('base64')}`,
               post_title: result[i].title,
               post_description: result[i].description,
               post_author: result[i].user,
-              post_elapsed: diff_hours(new Date(Date.now()), new Date(result[i].dateCreated)) + ' hours ago',
+              post_elapsed: elapsed > 24 ? (Math.floor(elapsed/24) > 1 ? (Math.floor(elapsed/24) + ' days ago') : '1 day ago') : (elapsed > 1 ? (elapsed + ' hours ago') : (Math.floor(elapsed*60) <= 1 ? '1 minute ago' : (Math.floor(elapsed*60) + ' minutes ago'))),
               post_id: 'a' + result[i]._id,
               status: result[i].user == myUser ? true : false,
               comment: [],
