@@ -23,7 +23,8 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Create database (DONE)
 - Create controllers (MISSING: FOLLOWING)
 - Implement database in the server (DONE)
-- Populate database with sample users (NOT STARTED)
+- Populate database with sample users (STARTED)
+- Deployment(DONE, ACCESS AT: https://foliodb.herokuapp.com/ )
 - Debug web server
 - Finalize the web app design
 
