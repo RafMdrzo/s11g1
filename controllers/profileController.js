@@ -6,7 +6,6 @@ const mongo = require('mongodb');
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
-const url = 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const sizeOf = require('image-size');
