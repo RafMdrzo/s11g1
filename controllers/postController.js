@@ -9,6 +9,7 @@ const db = require('../models/db.js');
 const assert = require('assert');
 const mongo = require('mongodb');
 const R = require('ramda');
+const sizeOf = require('image-size');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
@@ -95,8 +96,14 @@ const postController = {
               status: result[i].user == myUser ? true : false,
               comment: [],
               edit_id: 'aa' + result[i]._id,
-              liked: false
+              liked: false,
+              orientation: 'photo'
             };
+            var base64 = result[i].postpic.toString('base64');
+            var img = Buffer.from(base64, 'base64')
+            var dimensions = sizeOf(img);
+
+            postMirror.orientation = dimensions.width > dimensions.height ? 'photo' : 'photovert';
             postResulter.push(postMirror);
           }
 
