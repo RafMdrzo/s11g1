@@ -18,7 +18,7 @@ const Comment = require('../models/Comment.js');
 const Like = require('../models/Likes.js');
 const Following = require('../models/Following.js');
 
-const url = 'mongodb://localhost:27017/folioDB';
+const url = 'mongodb+srv://rafmrzo:coronavirus@cluster0-rgkbr.mongodb.net/test';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const postController = {

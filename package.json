@@ -4,7 +4,8 @@
   "description": "Folio is a social media platform designed for creatives. The website focuses on the content uploaded by the users. Basic social media features like as posting, commenting, and following users can be done.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",

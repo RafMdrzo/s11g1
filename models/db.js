@@ -6,7 +6,7 @@ const mongodb = require('mongodb');
 // import module `User` from `../models/UserModel.js`
 const User = require('./User.js');
 // db connect to
-const url = 'mongodb://localhost:27017/folioDB';
+const url = 'mongodb+srv://rafmrzo:coronavirus@cluster0-rgkbr.mongodb.net/test';
 
 
 // additional connection options
