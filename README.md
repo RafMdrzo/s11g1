@@ -17,12 +17,12 @@ Folio is a social media platform designed for creatives. The website focuses on 
 ## Roadmap
 - Create HTML designs (DONE)
 - Convert to Node.js (DONE)
-- Authentication (ALMOST DONE)
+- Authentication (MISSING: HASHING)
 - User actions (DEBUGGING)
 - Social media actions (ALMOST DONE)
 - Create database (DONE)
-- Create controllers (DEBUGGING)
-- Implement database in the server (DEBUGGING)
+- Create controllers (MISSING: FOLLOWING)
+- Implement database in the server (DONE)
 - Populate database with sample users (NOT STARTED)
 - Debug web server
 - Finalize the web app design
