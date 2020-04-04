@@ -112,8 +112,7 @@
   </div>
 </div>
 
-
-
+{{#each posts}}
 <!-- VIEW POST MODAL-->
 <div class="modal fade" id="view-pic" role="dialog">
   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -127,15 +126,12 @@
       </div>
       <!-- Modal body -->
       <div class="modal-body">
-
         <div class="viewer">
-
-          <img src="#" id="view-pic-cont">
-
-
+          <img src="{{path}}" id="view-pic-cont">
         </div>
       </div>
 
     </div>
   </div>
 </div>
+{{/each}}
