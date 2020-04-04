@@ -347,3 +347,15 @@ body {
 #newbio {
   border-radius: 10px;
 }
+
+.btn-lg {
+  width: 96%;
+}
+
+.btn-danger {
+  background-color: #e84118;
+}
+
+.profbtns {
+  background-color: #00a8ff;
+}

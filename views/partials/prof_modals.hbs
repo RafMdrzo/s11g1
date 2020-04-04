@@ -2,67 +2,65 @@
 <div class="modal fade" id="accset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-l modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title acc-set-title">Account Settings</h6>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      <div class="modal-post-container-add">
+        <div class="modal-header">
+          <h6 class="modal-title acc-set-title">Account Settings</h6>
+        </div>
 
 
-      <div class="modal-body" >
-        <div class="col">
-          <button title="You can only perform these actions one at a time" class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
-          href="#emailform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Email</button>
-
-          <div class="collapse multi-collapse" id="emailform">
-            <form  method='POST' action='/editemail'>
-              <div class="form-group">
-                <label for="mailing">Email address</label>
-                <input name='newemail' type="email" class="form-control" id="newmail" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              <button type='submit' class="btn btn-secondary confidential btn-lg"
-              role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Email</button>
-            </form>
+        <div class="modal-body">
+          <div class="col">
+            <button title="You can only perform these actions one at a time" class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
+            href="#emailform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Email</button>
+            <div class="collapse multi-collapse" id="emailform">
+              <form  method='POST' action='/editemail'>
+                <div class="form-group">
+                  <label for="mailing">Email address</label>
+                  <input name='newemail' type="email" class="form-control" id="newmail" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <button type='submit' class="btn btn-secondary confidential btn-lg"
+                role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Email</button>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <button title="You can only perform these actions one at a time" class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
-          href="#pwform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Password</button>
+          <div class="col">
+            <button title="You can only perform these actions one at a time" class="btn btn-primary confidential btn-lg btn-block" data-toggle="collapse"
+            href="#pwform" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Change Password</button>
 
 
-          <div class="collapse multi-collapse" id="pwform">
-            <form method='POST' action='/changepassword'>
-              <div class="form-group">
-                <label for="pass">Password</label>
-                <input name="newpass" type="password" class="form-control" id="newpass" placeholder="Password">
-              </div>
+            <div class="collapse multi-collapse" id="pwform">
+              <form method='POST' action='/changepassword'>
+                <div class="form-group">
+                  <label for="pass">Password</label>
+                  <input name="newpass" type="password" class="form-control" id="newpass" placeholder="Password">
+                </div>
 
-              <div class="form-group">
-                <label for="pass">Confirm Password</label>
-                <input name="confpass" type="password" class="form-control" id="conf_newpass" placeholder="Confirm Password">
-              </div>
-              <button type='submit' class="btn btn-secondary confidential btn-lg"
-              role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Password</button>
-            </form>
+                <div class="form-group">
+                  <label for="pass">Confirm Password</label>
+                  <input name="confpass" type="password" class="form-control" id="conf_newpass" placeholder="Confirm Password">
+                </div>
+                <button type='submit' class="profbtns btn btn-secondary confidential btn-lg"
+                role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Submit New Password</button>
+              </form>
+            </div>
           </div>
+          <div class="col">
+            <footer>
+              <form method='POST' action='/deleteuser'>
+                <button type='submit' class="btn btn-danger confidential btn-lg btn-block">
+                  Delete Account
+                </button>
+              </form>
+
+            </footer>
+          </div>
+
         </div>
-        <div class="col">
-          <footer>
-            <form method='POST' action='/deleteuser'>
-              <button type='submit' class="btn btn-danger confidential btn-lg btn-block">
-                Delete Account
-              </button>
-            </form>
 
-          </footer>
+        <!-- ACC SETTINGS FOOTER-->
+        <div class="modal-footer edit-done">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
         </div>
-
-      </div>
-
-      <!-- ACC SETTINGS FOOTER-->
-      <div class="modal-footer edit-done">
-        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
