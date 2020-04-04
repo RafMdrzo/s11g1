@@ -24,6 +24,15 @@ const followController = {
             user: userQuery,
             following: follow
         });
+    },
+
+    unfollow: (req, res) =>{
+      var currentUser = req.session.username;
+      var follow = req.body.follow;
+
+      db.deleteOne(Following, {user: currentUser, following: follow});
+      db.deleteOne(Follower, {user: follow, follower: currentUser});
+      res.redirect('/home');
     }
 }
 
