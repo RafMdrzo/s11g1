@@ -75,6 +75,11 @@ app.get('/search', searchController.getSearch);
 //delete user
 app.post('/deleteuser', registerController.deleteUser);
 
+
+//register ajax
+app.get('/checkUsername', registerController.getCheckUsername);
+app.get('/checkEmail', registerController.getCheckEmail);
+
 //logout
 app.get('/logout', function(req, res) {
 

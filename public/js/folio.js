@@ -16,143 +16,54 @@ $( document ).ready(function()
         }
     }
 /*REGISTRATION*/
-var check = false;
-    function checkPass()
+    var check = false;
+
+ $('#pw_').keyup(function(){
+    passVal = $("#pw_").val();
+    confVal = $("#cp_w").val();
+
+    if(passVal.length < 8 || confVal == '' || confVal == null)
     {
-        userName = $("#userName").val();
-        lastName = $("#lastName").val();
-        firstname = $("#firstName").val();
-        email = $("#email").val();
+        $("#pw_").css("border-color", "red");
+        var stmt = "Password has to be more than 8 characters.";
+        $("#error-msg-pw").val(stmt);
+        $('#regMod').prop('disabled', true);
 
-        passVal = $("#passCode").val();
-        confVal = $("#conf_pass").val();
+    }
+    else
+    {
+        $("#error-msg-pw").val("");
+        $("#pw_").css("border-color", "green");
+        $('#regMod').prop('disabled', false);
 
-        if(passVal != confVal)
-        {
-            if(passVal.length < 8)
-            {
-                $("#passCode").css("border-color", "red");
-                var stmt = "Password has to be more than 8 characters.";
-                $("#error-msg").val(stmt);
-            }
-            else
-            {
-                $("#error-msg").val("");
-            }
-
-            $("#passCode").css("border-color", "red");
-            $("#confVal").css("border-color", "red");
-
-            var stmt = "Passwords don't match.";
-            $("#error-msg").val(stmt);
-        }
-        else
-        {
-            $("#passCode").css("border-color", "green");
-            $("#confVal").css("border-color", "green");
-            check = true;
-        }
 
     }
 
-    $("#regMod").click(function()
-    {
-        checkPass();
-        if(check == true)
+    $('#cp_w').keyup(function(){
+   
+        passVal = $("#pw_").val();
+        confVal = $("#cp_w").val();
+
+        if(passVal != confVal)
         {
-            $('form #_regForm').submit();
+            $("#pw_").css("border-color", "red");
+            $("#cp_w").css("border-color", "red");
+
+            var stmt = "Passwords don't match.";
+            $("#error-msg-cpw").val(stmt);
+            $('#regMod').prop('disabled', true);
+
         }
-    });
+        else
+        {
+            $("#pw_").css("border-color", "green");
+            $("#cp_w").css("border-color", "green");
+            check = true;
+            $('#regMod').prop('disabled', false);
 
-    $("#logBtn").click(function()
-    {
-        $('form #loginForm').submit();
-    });
-
-    $("#cancelMod").click(function()
-    {
-        userName = $("#userName").val("");
-        lastName = $("#lastName").val("");
-        firstname = $("#firstName").val("");
-        email = $("#email").val("");
-
-        passVal = $("#passCode").val("");
-        confVal = $("#conf_pass").val("");
-    });
-// /*LOG-IN*/
-//     /*MASTER ACCOUNT FOR LOGGING IN (TEMPORARY ONLY) */
-//     $("#logBtn").click(function()
-//     {
-//         if($("#userLog").val()=="eugeniopastoral")
-//         {
-//             if($("#passLog").val()=="superpassword")
-//             {
-//                 window.location.href = "home";
-//             }
-//             else
-//             {
-//                 $("#passLog").css("border-color", "red");
-//             }
-//         }
-//     });
-
-/* COMMENT */
-    $(".addcommentbtn").click(function()
-    {
-        var comment = $(".addcomment").val();
-        var stmt = "<div class = 'comment-cont'>" +
-                    "<button class='close delete-comm' type='button'>"+
-                    "x</button>" +
-                   "<img src ='img/avatar.jpg'>" +
-                   "<div class='row-name'>" +
-                   "<strong> Eugenio Pastoral </strong>"+
-                   "<div class='row-comment text-break'>" +
-                   comment + "</div></div></div>";
-
-        $(".comments").append(stmt);
-        $(".addcomment").val("");
-    });
-
-    $(document).on('click', '.delete-comm', function(e)
-    {
-        $(this).parent().remove();
-    });
-
-    $(".profile-red").click(function()
-    {
-        window.location.href = "profile";
-    });
-
-/* UPLOAD */
-    $(".addpostbtn").click(function()
-    {
-        var stmt = "<div id='post'>" +
-                "<button class='close delete-post' type='button'>x</button>" +
-                "<div id='photo-container'>" +
-                "<div id='photo'>" +
-                "<img class='fill' src='" + $(".fill-row").attr('src') + "'>" +
-                "</div></div>" +
-                "<div id='meta-container'>" +
-                "<div id='meta'>" +
-                "<div class='photo-header'>" +
-                "<label>" + $(".addposttitle").val() + "</label><br><br>" +
-                "<span class='author'>by Eugenio Pastoral</span><br>" +
-                "<span class='date'>8 hours ago</span><br>" +
-                "</div><hr>" +
-                "<div class='photo-description'>" +
-                "<label>" + $(".addpostdesc").val() + "</label></div>" +
-                "<div class='photo-actions'>" +
-                "<img class='socact-action' src='img/heart.png'>" +
-                "<a class='socact-container' data-toggle='modal' data-target='#postModal'>" +
-                "<img class='socact-action' src='img/comment.png'>" + "</a>" +
-                "<img class='socact-action' src='img/share.png'>" +
-                "<a class='edit-post socact-container' data-toggle='modal' data-target='#editModal'>" +
-                "<img class='socact-action' src='img/options.png'>" + "</a>" +
-                "</div></div></div></div>";
-        $("#post-container").append(stmt);
-        $(".addposttitle").val("");
-        $(".addpostdesc").val("");
-    });
+        }
+   });
+ });
 
     function readURL(input)
     {
@@ -204,5 +115,40 @@ var check = false;
         window.location.href = "home";
     });
 
+    $('#userName_').keyup(function (){
+        var uname = $('#userName_').val();
+
+
+        $.get('/checkUsername', {username: uname}, (result)=>{
+            if(result.username == uname){
+                $('#userName_').css('border-color', 'red');
+                $('#error-msg-uname').text('User already registered');
+                $('#regMod').prop('disabled', true);
+
+            } else {
+                $('#userName_').css('border-color', 'green');
+                $('#error-msg-uname').text('');
+                $('#regMod').prop('disabled', false);
+            }
+        });
+    });
+    
+    $('#email_').keyup(function (){
+        var mailer = $('#email_').val();
+
+
+        $.get('/checkEmail', {email: mailer}, (result)=>{
+            if(result.email == mailer){
+                $('#email_').css('border-color', 'red');
+                $('#error-msg-email').text('Email already registered');
+                $('#regMod').prop('disabled', true);
+
+            } else {
+                $('#email_').css('border-color', 'green');
+                $('#error-msg-email').text('');
+                $('#regMod').prop('disabled', false);
+            }
+        });
+    });
     
 });

@@ -10,6 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
   <script src="js/folio.js"></script>
+
   <!-- BOOTSTRAP AND CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/login.css" type="text/css">
@@ -97,28 +98,39 @@
 
             <div class="form-group">
               <label for="lName">Name </label>
-              <input type="text" name="fullName_" class="form-control" id="lastName" placeholder="Enter full name" required>
+              <input type="text" name="fullName_" class="form-control" id="namefield" placeholder="Enter full name" required>
             </div>
 
             <div class="form-group">
-              <label css="color: red">{{user_exists}}</label>
               <label for="userName">Username</label>
-              <input type="text" name="userName_" class="form-control" id="userName" placeholder="Enter username" required>
+              <input type="text" name="userName_" class="form-control" id="userName_" placeholder="Enter username" required>
+               <div id="error-cont">
+                <p id="error-msg-uname"></p>
+               </div>
             </div>
 
             <div class="form-group">
               <label for="mailing">Email address</label>
-              <input type="email" name ="email_" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+              <input type="email" name ="email_" class="form-control" id="email_" aria-describedby="emailHelp" placeholder="Enter email" required>
+              <div id="error-cont">
+                <p id="error-msg-email"></p>
+               </div>
             </div>
 
             <div class="form-group">
               <label for="pass">Password</label>
-              <input type="password" name = "pw_" class="form-control" id="passCode" placeholder="Password" required>
+              <input type="password" name = "pw_" class="form-control" id="pw_" placeholder="Password" required>
+              <div id="error-cont">
+                <p id="error-msg-pw"></p>
+               </div>
             </div>
 
             <div class="form-group">
               <label for="pass">Confirm Password</label>
-              <input type="password" name="cp_w" class="form-control" id="conf_pass" placeholder="Confirm Password" required>
+              <input type="password" name="cp_w" class="form-control" id="cp_w" placeholder="Confirm Password" required>
+              <div id="error-cont">
+                <p id="error-msg-cpw"></p>
+               </div>
             </div>
               <input type="hidden" name="formInstance" value="form2">
             <div class="modal-footer">
@@ -128,9 +140,7 @@
             </div>
           </form>
 
-          <div id="error-cont">
-            <p id="error-msg"></p>
-          </div>
+         
         </div>
         
       </div>

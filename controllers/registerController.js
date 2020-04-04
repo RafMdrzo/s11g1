@@ -96,6 +96,20 @@ const registerController = {
         db.deleteOne(User, {username: currentUser});
 
         res.redirect('/');
+    },
+    getCheckUsername: (req, res)=>{
+        var uname = req.query.username;
+
+        db.findOne(User, {username: uname}, 'username', (result)=>{
+            res.send(result);
+        })
+    },
+    getCheckEmail: (req, res)=>{
+        var mailer = req.query.email;
+
+        db.findOne(User, {email: mailer}, 'email', (result)=>{
+            res.send(result);
+        })
     }
 };
 
