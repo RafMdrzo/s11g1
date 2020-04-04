@@ -3,7 +3,6 @@ $(document).ready(function() {
     event.preventDefault();
     var username = $('#myInput').val();
     $('#myDropdown').empty();
-    alert(username);
 
     $.get('/search', {username: username}, function(result) {
       if(result != null) {
