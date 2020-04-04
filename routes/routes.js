@@ -61,6 +61,7 @@ app.post('/unlikepost', likeController.deleteLike);
 
 //following
 app.post('/following', followController.follow);
+app.post('/unfollowing', followController.unfollow);
 
 //editprofile
 app.post('/editprofile', profileController.postEditProfile);
