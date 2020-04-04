@@ -5,6 +5,8 @@ const mongo = require('mongodb');
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
 const Post = require('../models/Post.js');
+const Following = require('../models/Follow.js');
+
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
