@@ -82,7 +82,6 @@ app.get('/checkEmail', registerController.getCheckEmail);
 
 //logout
 app.get('/logout', function(req, res) {
-
   req.session.destroy((err) => {
 
     if(err) {

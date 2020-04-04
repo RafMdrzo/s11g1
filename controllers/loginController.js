@@ -14,7 +14,12 @@ const loginController = {
   // executed when the client sends an HTTP GET request `/login`
   // as defined in `../routes/routes.js`
   getLogIn: async function (req, res) {
-    res.render('login', {layout: false});
+    if(req.session.loggedin != true) {
+      res.render('login', {layout: false});
+    }
+    else {
+      res.redirect('/home');
+    }
   },
 
   // executed when the client sends an HTTP POST request `/signup`
@@ -30,24 +35,20 @@ const loginController = {
 
     // fields to be returned
     var projection = 'username password avatar imgType';
-    
+
     db.findOne(User, query, projection, function(result) {
       if(result != null) {
         if(req.body.username == result.username) {
           if(req.body.password == result.password) {
             req.session.username = result.username;
-            
-                  res.redirect("/home");
-                      
-                  } else {
-                      res.send(500);
-                  }
-              
-          
-           
+            req.session.loggedin = true;
+            res.redirect("/home");
+          } else {
+            res.send(500);
           }
         }
-      });
+      }
+    });
   }
 
 }
