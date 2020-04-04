@@ -18,7 +18,7 @@ const Comment = require('../models/Comment.js');
 const Like = require('../models/Likes.js');
 const Following = require('../models/Following.js');
 
-const url = 'mongodb://localhost:27017/folioDB';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const postController = {
@@ -103,6 +103,35 @@ const postController = {
 
                   }
 
+                  if(followingResulter.length == 0)
+                  {
+                    for(i = 0; i < result.length; i++)
+                    {
+                      if(result[i].user == req.session.username)
+                      {
+                        elapsed = diff_hours(new Date(Date.now()), new Date(result[i].dateCreated));
+                        var postMirror = {
+                          post_image: `data:${result[i].imgType};charset=utf-8;base64,${result[i].postpic.toString('base64')}`,
+                          post_title: result[i].title,
+                          post_description: result[i].description,
+                          post_author: result[i].user,
+                          post_elapsed: elapsed > 24 ? (Math.floor(elapsed/24) > 1 ? (Math.floor(elapsed/24) + ' days ago') : '1 day ago') : (elapsed > 1 ? (elapsed + ' hours ago') : (Math.floor(elapsed*60) <= 1 ? '1 minute ago' : (Math.floor(elapsed*60) + ' minutes ago'))),
+                          post_id: 'a' + result[i]._id,
+                          status: result[i].user == myUser ? true : false,
+                          comment: [],
+                          edit_id: 'aa' + result[i]._id,
+                          liked: false,
+                          orientation: 'photo'
+                        };
+                        var base64 = result[i].postpic.toString('base64');
+                        var img = Buffer.from(base64, 'base64')
+                        var dimensions = sizeOf(img);
+
+                        postMirror.orientation = dimensions.width > dimensions.height ? 'photo' : 'photovert';
+                        postResulter.push(postMirror);
+                      }
+                    }
+                  }
                 
                   for(j = 0 ; j < followingResulter.length; j++)
                   {

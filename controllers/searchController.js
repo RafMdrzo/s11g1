@@ -3,7 +3,7 @@ const assert = require('assert');
 const mongo = require('mongodb');
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/User.js');
-const url = 'mongodb://localhost:27017/folioDB';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 // defines an object which contains functions executed as callback

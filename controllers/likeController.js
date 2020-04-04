@@ -4,7 +4,7 @@ const mongo = require('mongodb');
 
 const Like = require('../models/Likes.js');
 
-const url = 'mongodb://localhost:27017/folioDB';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
 
 const likeController = {
     postLike: async function (req, res) {

@@ -7,7 +7,7 @@ const User = require('../models/User.js');
 const Post = require('../models/Post.js');
 const Comment = require('../models/Comment.js');
 
-const url = 'mongodb://localhost:27017/folioDB';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
 
 const commentController = {

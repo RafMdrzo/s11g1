@@ -5,7 +5,7 @@ const mongo = require('mongodb');
 const Follower = require('../models/Follower.js');
 const Following = require('../models/Following.js');
 
-const url = 'mongodb://localhost:27017/folioDB';
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/folioDB';
 
 const followController = {
     follow: async function(req,res) {
