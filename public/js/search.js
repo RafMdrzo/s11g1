@@ -16,9 +16,9 @@ $(document).ready(function() {
     });
   });
 
-  document.addEventListener("click", (evt) => {
+  document.addEventListener("click", function(evt) {
     const flyoutElement = document.getElementById("myInput");
-    let targetElement = evt.target; // clicked element
+    var targetElement = evt.target; // clicked element
 
     do {
       if (targetElement == flyoutElement)
