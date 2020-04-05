@@ -137,7 +137,7 @@ const postController = {
                   {
                     for(i = 0; i < result.length; i++)
                     {
-                      if(followingResulter[j].following == result[i].user && result[i].user == req.session.username)
+                      if(followingResulter[j].following == result[i].user || result[i].user == req.session.username)
                       {
                         elapsed = diff_hours(new Date(Date.now()), new Date(result[i].dateCreated));
                         var postMirror = {
