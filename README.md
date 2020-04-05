@@ -49,14 +49,18 @@ Folio is a social media platform designed for creatives. The website focuses on 
 5. Start contributing!
 
 ## How to run
+Accessing the app via the Heroku deployment is easier since the database is already being hosted in the cloud. Do note that it also has the same sample data.
 
 OPTIONAL: To minify public scripts, run grunt on the folder's directory via command line
-1. Execute index.js.
-2. Go to localhost:3000 or https://foliodb.herokuapp.com/. You'll be redirected to the login page.
-3. To login, enter **eugeniopastoral** and **helloworld** as the username and password respectively.
-4. You'll now be able to view and interact with posts. You can also modify your account and profile information. 
+1. Create MongoDB database named as folioDB. Create the collections: users, posts, comments, likes, followings, and followers.
+2. Import the sample data from JSON files in the folder, **sample data**, to their respective collections.
+3. Run the database.
+4. Execute index.js.
+5. Go to localhost:3000 or https://foliodb.herokuapp.com/. You'll be redirected to the login page. This is the behavior when you haven't logged in yet.
+6. To login, enter **eugeniopastoral** and **helloworld** as the username and password respectively. Alternatively, you can use the usernames: **kychoa**, **rafmdrz**, and **kerbychua**. These accounts also have **helloworld** as their password.
+7. You'll now be able to view and interact with posts. You can also modify your account and profile information. 
    You can also search for other existing users in the database.
-5. To logout, click the avatar and press logout.
+8. To logout, click the avatar and press logout.
 
 ## Stuff to remember
 
