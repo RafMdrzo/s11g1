@@ -18,15 +18,15 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Create HTML designs (DONE)
 - Convert to Node.js (DONE)
 - Authentication (MISSING: HASHING)
-- User actions (DEBUGGING)
-- Social media actions (ALMOST DONE)
+- User actions (DONE)
+- Social media actions (DONE)
 - Create database (DONE)
-- Create controllers (MISSING: FOLLOWING)
+- Create controllers (DONE)
 - Implement database in the server (DONE)
 - Populate database with sample users (STARTED)
-- Deployment(DONE, ACCESS AT: https://foliodb.herokuapp.com/ )
-- Debug web server
-- Finalize the web app design
+- Deployment (DONE, ACCESS AT: https://foliodb.herokuapp.com/ )
+- Debug web server (STARTED)
+- Finalize the web app design (STARTED)
 
 ## Dependencies
 - Node.js
