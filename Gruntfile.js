@@ -3,15 +3,9 @@ module.exports = function (grunt) {
 
     // define source files and their destinations
     
-    concat: {
-        js: {
-            src:  ['public/js/fileupload.js', 'public/js/folio.js', 'public/js/like.js', 'public/js/profile.js', 'public/js/scrollify.js', 'public/js/search.js', 'public/js/typed.js'],
-            dest: 'public/js/production.js'
-        }
-    },
     uglify: {
         js: { 
-            src: 'public/js/production.js',
+            src: ['public/js/*.js'],
             dest: 'public/js/min/',
             expand: true,    // allow dynamic building
             flatten: true,   // remove all unnecessary nesting
@@ -30,7 +24,7 @@ grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-concat');
 
 // register at least this one task
-grunt.registerTask('default', ['concat', 'uglify']);
+grunt.registerTask('default', ['uglify']);
 
 
 };
