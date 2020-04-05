@@ -36,6 +36,7 @@ Folio is a social media platform designed for creatives. The website focuses on 
 - Express Handlebars
 - Express Session
 - Body Parser
+- Image-Size
 
 ## How to setup this GitHub repository in your machine
 
