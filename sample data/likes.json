@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5e898c1f2b635d0017e81370"},"user":"kerbychua","post":{"$oid":"5e88a278f041e8001786c5e1"},"dateLiked":{"$date":{"$numberLong":"1586072607454"}},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e89903e2b635d0017e81371"},"user":"kychoa","post":{"$oid":"5e897fba2b635d0017e81347"},"dateLiked":{"$date":{"$numberLong":"1586073662345"}},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5e8991ef2b635d0017e81373"},"user":"kychoa","post":{"$oid":"5e897fba2b635d0017e81347"},"dateLiked":{"$date":{"$numberLong":"1586074095492"}},"__v":{"$numberInt":"0"}}
