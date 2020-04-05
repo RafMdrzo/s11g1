@@ -49,10 +49,13 @@ Folio is a social media platform designed for creatives. The website focuses on 
 5. Start contributing!
 
 ## How to run
+
+OPTIONAL: To minify public scripts, run grunt on the folder's directory via command line
 1. Execute index.js.
-2. Go to localhost:3000. You'll be redirected to the login page.
+2. Go to localhost:3000 or https://foliodb.herokuapp.com/. You'll be redirected to the login page.
 3. To login, enter **eugeniopastoral** and **helloworld** as the username and password respectively.
-4. You'll now be able to view and interact with posts. You can also modify your account and profile information.
+4. You'll now be able to view and interact with posts. You can also modify your account and profile information. 
+   You can also search for other existing users in the database.
 5. To logout, click the avatar and press logout.
 
 ## Stuff to remember
