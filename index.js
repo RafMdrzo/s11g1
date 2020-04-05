@@ -31,6 +31,8 @@ app.use('/', routes);
 
 db.connect();
 
+
+
 app.listen(port, function()
 {
     console.log('listening at port ' + port);

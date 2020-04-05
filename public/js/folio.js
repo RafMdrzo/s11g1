@@ -119,7 +119,7 @@ $( document ).ready(function()
         var uname = $('#userName_').val();
 
 
-        $.get('/checkUsername', {username: uname}, (result)=>{
+        $.get('/checkUsername', {username: uname}, function(result){
             if(result.username == uname){
                 $('#userName_').css('border-color', 'red');
                 $('#error-msg-uname').text('User already registered');
@@ -137,7 +137,7 @@ $( document ).ready(function()
         var mailer = $('#email_').val();
 
 
-        $.get('/checkEmail', {email: mailer}, (result)=>{
+        $.get('/checkEmail', {email: mailer}, function(result){
             if(result.email == mailer){
                 $('#email_').css('border-color', 'red');
                 $('#error-msg-email').text('Email already registered');
