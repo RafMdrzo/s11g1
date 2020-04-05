@@ -51,6 +51,8 @@ Folio is a social media platform designed for creatives. The website focuses on 
 ## How to run
 Accessing the app via the Heroku deployment is easier since the database is already being hosted in the cloud. Do note that it also has the same sample data.
 
+For exporting and importing the sample data, we used MongoDB Compass.
+
 OPTIONAL: To minify public scripts, run grunt on the folder's directory via command line
 1. Create MongoDB database named as folioDB. Create the collections: users, posts, comments, likes, followings, and followers.
 2. Import the sample data from JSON files in the folder, **sample data**, to their respective collections.
